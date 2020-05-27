@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+//Comentario JEJE
 """Implementacion del algoritmo de biseccion de forma recursiva"""
 def biseccion_rec(funcion, a, b, tolerancia, iteracion):
     punto_medio = a + (b - a) / 2
