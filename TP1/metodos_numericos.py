@@ -7,7 +7,7 @@ def biseccion_rec(funcion, a, b, tolerancia, iteracion):
     punto_medio = a + (b - a) / 2
     if funcion(punto_medio) == 0 or (b - a) / 2 < tolerancia or iteracion == 0:
         return punto_medio
-    elif funcion(a) * funcion(punto_medio) > 0:
+    elif funcion(a) * funcion(punto_maedio) > 0:
         return biseccion_rec(funcion, punto_medio, b, tolerancia, iteracion - 1)
     else:
         return biseccion_rec(funcion, a, punto_medio, tolerancia, iteracion - 1)
