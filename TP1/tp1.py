@@ -1,4 +1,4 @@
-from metodos_numericos import biseccion_recursivo
+from metodos_numericos import biseccion
 import numpy as np
 
 
@@ -15,5 +15,5 @@ def funcion3(x):
 
 
 if __name__ == "__main__":
-    raiz = biseccion_recursivo(funcion1, 0, 2, 0.2, 20)  # prueba
-    print(raiz)
+    raiz, historia = biseccion(funcion1, 0, 2, 0.00001, 50)  # prueba
+    print(historia)
