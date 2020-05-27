@@ -23,10 +23,25 @@ def introduccion():
     print("")
     print("")
     print("")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ")
 
 def grafico_de_las_funciones():
 
+def buscar_raices(funcion, tolerancia):
+    raiz_biseccion, historia_biseccion = biseccion(funcion, 0, 2, tolerancia, 50)
+    raiz_newton, historia_newton = newton_raphson()
+    raiz_newton_modificado, historia_newton_modificado = newton_raphson()
+    raiz_secante, historia_secante = secante()
+
+    # return de todo?
+
+
 def busqueda_de_raices(tolerancia):
+    buscar_raices(funcion1, tolerancia)
+    buscar_raices(funcion2, tolerancia)
+    buscar_raices(funcion3, tolerancia)
+
+
 
 def busqueda_con_programa():
 
@@ -36,8 +51,8 @@ def comparacion_de_metodos(historia):
 def main():
     introduccion()
     grafico_de_las_funciones()
-    historia_con_poca_tolerancia = busqueda_de_raices("""1.10-5""")
-    historia_con_mucha_tolerancia = busqueda_de_raices("""1.10-13""")
+    historia_con_poca_tolerancia = busqueda_de_raices(1e-5)
+    historia_con_mucha_tolerancia = busqueda_de_raices(1e-13)
     busqueda_con_programa()
     comparacion_de_metodos(historia_con_poca_tolerancia)
     comparacion_de_metodos(historia_con_mucha_tolerancia)
@@ -45,6 +60,4 @@ def main():
 
 
 if __name__ == "__main__":
-    raiz, historia = biseccion(funcion1, 0, 2, 0.00001, 50)  # prueba
-    print(historia)
     main()
