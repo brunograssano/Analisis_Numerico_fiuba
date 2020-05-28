@@ -23,6 +23,6 @@ def biseccion_recursivo(funcion, a, b, tolerancia, iteracion, max_n_iteraciones,
 def biseccion(funcion, a, b, tolerancia, max_n_iteraciones):
     historia = np.zeros((max_n_iteraciones, 2))
     if funcion(a) * funcion(b) > 0 or tolerancia < 0 or max_n_iteraciones < 0:
-        print(" No puede existir raiz en este intervalo")
+        print(" El intervalo no provee información suficiente para asegurar una raiz")
         return None
     return biseccion_recursivo(funcion, a, b, tolerancia, 0,max_n_iteraciones, historia)
