@@ -27,22 +27,26 @@ def Introduccion():
 
 def GraficoDeFunciones():
 
+def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante):
+    print("Raiz Biseccion: ", raizBiseccion)
+    print("Raiz Newton: ", raizNewton)
+    print("Raiz Newton modificado:", raizNewtonModificado)
+    print("Raiz Secante: ", raizSecante)
+
 def BuscarRaices(Funcion, tolerancia):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 50)
     raizNewton, historiaNewton = NewtonRaphson()
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphson()
     raizSecante, historiaSecante = Secante()
 
-    # return de todo?
-
+    MostrarRaices(raizBiseccion,raizNewton,raizNewtonModificado,raizSecante)
+    return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 def busqueda_de_raices(tolerancia):
     BuscarRaices(Funcion1, tolerancia)
     BuscarRaices(Funcion2, tolerancia)
     BuscarRaices(Funcion3, tolerancia)
     comparacion_de_metodos(tolerancia)
-
-
 
 def BusquedaConPrograma():
 
