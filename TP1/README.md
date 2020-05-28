@@ -11,3 +11,7 @@
 
 **Gráficos**
     [WIP]
+    
+## Convención a usar
+* *camelCase* para variables
+* *CamelCase* para funciones

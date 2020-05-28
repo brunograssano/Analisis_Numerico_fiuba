@@ -11,9 +11,9 @@ def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, his
         historia = historia[:iteracion+1]
         return puntoMedio, historia
     elif Funcion(a) * Funcion(puntoMedio) > 0:
-        return BiseccionRecursivo(funcion, puntoMedio, b, tolerancia, iteracion + 1, maxIteraciones, historia)
+        return BiseccionRecursivo(Funcion, puntoMedio, b, tolerancia, iteracion + 1, maxIteraciones, historia)
     else:
-        return BiseccionRecursivo(funcion, a, puntoMedio, tolerancia, iteracion + 1, maxIteraciones, historia)
+        return BiseccionRecursivo(Funcion, a, puntoMedio, tolerancia, iteracion + 1, maxIteraciones, historia)
 
 
 """Funcion que da inicio al algoritmo de biseccion implementado de forma recursiva.
