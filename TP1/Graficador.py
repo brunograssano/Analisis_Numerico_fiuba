@@ -23,6 +23,9 @@ def graficarOrdenDeConvergencia(historia):
     plt.grid(True)
     plt.show()
 
+## OJO, falta testearlo. Si bien teóricamente funciona, prácticamente no logra la convergencia teórica.
+#Cuando tengamos los demás métodos deberíamos probarlo.
+
 def graficarConstanteAsintotica(historia):
     plt.figure()
     plt.plot(historia[:,0],historia[:,1],\
