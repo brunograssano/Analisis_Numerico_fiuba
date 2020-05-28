@@ -12,6 +12,7 @@ def ordenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
     denominador = np.log(abs(c/d))
 
     return numerador/denominador
+
 def calcularHistoriaDeOrden(historia): 
     tope = len(historia)
     historiaDeOrden = np.zeros((tope-4,2))
