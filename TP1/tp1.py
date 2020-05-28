@@ -1,4 +1,6 @@
 from metodos_numericos import Biseccion
+from calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
+from calculadoraAlfaLambda import calcularHistoriaDeOrden
 import numpy as np
 
 
@@ -35,19 +37,37 @@ def BuscarRaices(Funcion, tolerancia):
 
     # return de todo?
 
+def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModificado,historiaSecante):
+    ordenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
+    ordenNewton = calcularHistoriaDeOrden(historiaNewton)
+    ordenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
+    ordenSecante = calcularHistoriaDeOrden(historiaSecante)
 
-def busqueda_de_raices(tolerancia):
-    BuscarRaices(Funcion1, tolerancia)
-    BuscarRaices(Funcion2, tolerancia)
-    BuscarRaices(Funcion3, tolerancia)
-    comparacion_de_metodos(tolerancia)
+    constanteBiseccion = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteNewton = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteNewtonModificado = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteSecante = calcularHistoraConstanteAsintotica(historia, alfa)
 
+    print("Se mostraran ahora las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos")
+    graficarOrdenDeConvergencia(ordenBiseccion,ordenNewton,ordenNewtonModificado,ordenSecante)
+    graficarConstanteAsintotica(constanteBiseccion,constanteNewton,constanteNewtonModificado,constanteSecante)
+
+def BuscarYComparar(Funcion, tolerancia): #mejor nombre?
+    historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
+    ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
+
+def BusquedaDeRaices(tolerancia):
+    print("Buscamos y comparamos las constantes para la primera funcion")
+    BuscarYComparar(Funcion1,tolerancia)
+
+    print("Buscamos y comparamos las constantes para la segunda funcion")
+    BuscarYComparar(Funcion2,tolerancia)
+
+    print("Buscamos y comparamos las constantes para la tercera funcion")
+    BuscarYComparar(Funcion3,tolerancia)
 
 
 def BusquedaConPrograma():
-
-def ComparacionDeMetodos(historia):
-
 
 def main():
     Introduccion()
