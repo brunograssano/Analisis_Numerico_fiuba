@@ -39,7 +39,8 @@ def BuscarRaices(Funcion, tolerancia):
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphson()
     raizSecante, historiaSecante = Secante()
 
-    # return de todo?
+    MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante)
+    return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModificado,historiaSecante):
     ordenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
