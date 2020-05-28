@@ -60,7 +60,7 @@ def BuscarYComparar(Funcion, tolerancia): #mejor nombre?
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
     MostrarRaices(raizBiseccion,raizNewton,raizNewtonModificado,raizSecante)
-    return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
+
 
 def BusquedaDeRaices(tolerancia):
     print("Buscamos y comparamos las constantes para la primera funcion")
