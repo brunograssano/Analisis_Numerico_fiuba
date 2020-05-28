@@ -1,6 +1,4 @@
 from metodos_numericos import Biseccion
-from calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
-from calculadoraAlfaLambda import calcularHistoriaDeOrden
 import numpy as np
 
 
@@ -29,6 +27,12 @@ def Introduccion():
 
 def GraficoDeFunciones():
 
+def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante):
+    print("Raiz Biseccion: ", raizBiseccion)
+    print("Raiz Newton: ", raizNewton)
+    print("Raiz Newton modificado:", raizNewtonModificado)
+    print("Raiz Secante: ", raizSecante)
+
 def BuscarRaices(Funcion, tolerancia):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 50)
     raizNewton, historiaNewton = NewtonRaphson()
@@ -55,6 +59,8 @@ def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModifica
 def BuscarYComparar(Funcion, tolerancia): #mejor nombre?
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
+    MostrarRaices(raizBiseccion,raizNewton,raizNewtonModificado,raizSecante)
+    return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 def BusquedaDeRaices(tolerancia):
     print("Buscamos y comparamos las constantes para la primera funcion")
