@@ -44,8 +44,8 @@ def SecanteRecursivo(Funcion,x1,x0,tolerancia,iteracion,maxIteraciones,historia)
     if(abs(x0-x1)<tolerancia or iteracion==maxIteraciones):
         historia = historia[:iteracion+1]
         return x1,historia
-    fx1=evaluar(Funcion,x1)
-    fx0=evaluar(Funcion,x0)
+    fx1=Evaluar(Funcion,x1)
+    fx0=Evaluar(Funcion,x0)
     x2=x1-fx1*(x1-x0)/(fx1-fx0)
     return SecanteRecursivo(Funcion,x2,x1,tolerancia,iteracion+1,maxIteraciones,historia)
 
