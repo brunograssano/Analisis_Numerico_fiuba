@@ -6,7 +6,7 @@ import numpy as np
     Los valores enviados son validos."""
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
-    historia[iteracion] = (iteracion, puntoMedio)
+    historia[iteracion] = (iteracion, punatoMedio)
     if Funcion(puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
         historia = historia[:iteracion+1]
         return puntoMedio, historia
