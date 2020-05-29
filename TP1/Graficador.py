@@ -63,25 +63,6 @@ def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, hi
     plt.grid(True)
     plt.show()
 
-
-
-def graficar(historiaBIS, historiaNR, historiaNRF, historiaSEC):
-    
-    graficarMetodos(historiaBIS, historiaNR, historiaNRF, historiaSEC);
-    
-    alfaBIS, historiaOCBIS = calcularHistoriaDeOrden(historiaBiseccion)
-    alfaNR, historiaOCNR = calcularHistoriaDeOrden(historiaNR)
-    alfaNRM, historiaOCNRM = calcularHistoriaDeOrden(historiaNRM)
-    alfaSEC, historiaOCSEC = calcularHistoriaDeOrden(historiaSEC)
-    
-    graficarOrdenDeConvergencia(historiaOCBIS, historiaOCNR,historiaOCNRM, historiaOCSEC)
-    
-    lambdaBIS, historiaCABIS = calcularHistoraConstanteAsintotica(historiaBiseccion, alfaBIS)
-    lambdaNR, historiaCANR = calcularHistoraConstanteAsintotica(historiaOCNR, alfaNR)
-    lambdaNRM, historiaCANRM = calcularHistoraConstanteAsintotica(historiaOCNRM, alfaNRM)
-    lambdaSEC, historiaCASEC = calcularHistoraConstanteAsintotica(historiaOCSecante, alfaSEC)
-    
-    graficarConstantesAsintoticas(historiaCABiseccion, historiaCANR, historiaCANRM, historiaCASecante)
     
     
     
