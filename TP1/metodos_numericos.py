@@ -42,7 +42,7 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
     Los valores enviados son validos."""
 def SecanteRecursivo(Funcion,x1,x0,tolerancia,iteracion,maxIteraciones,historia):
     historia[iteracion]=(iteracion,x1)
-    if(abs(x0-x1)<tolerancia):
+    if(abs(x0-x1)<tolerancia or iteracion==maxIteraciones):
         historia = historia[:iteracion+1]
         return x1,historia
     x2=x1-Funcion(x1)*(x1-x0)/(Funcion(x1)-Funcion(x0))

@@ -1,10 +1,9 @@
 import matplotlib.pyplot as plt
+
 import numpy as np
 
 
-#Falta toquetear cómo queremos que aparezca la información.
-#(Sí, son las mismas funciones con distintos title, si quieren lo reworkeamos, pero dsp [por eso el #]).
-
+# Recibe las 4 historias de los métodos y las grafica.
 def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante):
     plt.figure()
     plt.plot(historiaBiseccion[:,0],historiaBiseccion[:,1],\
@@ -20,6 +19,7 @@ def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
     plt.title('Raiz estimada')
     plt.grid(True)
     plt.show()
+
     
 #Recibe la historia de los órdenes de convergencia respecto a cada paso.
 #OC: "Orden de convergencia"
@@ -42,7 +42,6 @@ def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson,\
 
 ## OJO, falta testearlo. Si bien teóricamente funciona, prácticamente no logra la convergencia teórica.
 #Cuando tengamos los demás métodos deberíamos probarlo.
-
 #Recibe como parámetros las historias de las constantes asintóticas respecto a cada paso.
 # CA: "Constante asintótica"
 def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, historiaCASEC):
@@ -63,3 +62,7 @@ def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, hi
     plt.title('Constante asintótica aproximada')
     plt.grid(True)
     plt.show()
+
+    
+    
+    
