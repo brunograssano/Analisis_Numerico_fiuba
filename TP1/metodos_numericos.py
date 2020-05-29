@@ -18,7 +18,7 @@ def Evaluar(expresion,valor):
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
-    if Funcion(Brunoputo) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
+    if Funcion(puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
         historia = historia[:iteracion+1]
         return puntoMedio, historia
     elif Funcion(a) * Funcion(puntoMedio) > 0:
@@ -58,3 +58,13 @@ def Secante(Funcion,x1,x0,tolerancia,maxIteraciones):
         return None
     return SecanteRecursivo(Funcion,x1,x0,tolerancia,0,maxIteraciones,historia)
 
+def NewtonRaphson(Funcion,x1,x0,tolerancia,maxIteraciones):
+    historia = np.zeros((maxIteraciones, 2))
+    if(tolerancia<0 or maxIteraciones<0):
+        print(" El intervalo no provee información suficiente para asegurar una raiz")
+        return None
+
+    return 2
+
+def NewtonRaphsonModificado(Funcion,x1,x0,tolerancia,maxIteraciones):
+    return 2
