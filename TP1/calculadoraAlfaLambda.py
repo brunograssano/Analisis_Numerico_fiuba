@@ -28,7 +28,7 @@ def calcularHistoriaDeOrden(historia):
 
 def constanteAsintotica(xN, xNmas1, alfa, raiz):
     numerador = abs((xNmas1 - raiz))
-    denominador = abs((xN - raiz)**alfa)
+    denominador = abs(xN - raiz)**alfa
     return numerador/denominador
 
 def calcularHistoraConstanteAsintotica(historia, alfa):

@@ -20,13 +20,13 @@ def Funcion1():
 
 def Funcion2():
     x = symbols('x')
-    funcion = (x ** 5) - 6.6 * (x ** 4) + 21.312 * (x ** 2) - 38.016 * x + 17.28
+    funcion = (x ** 5) - 6.6 * (x ** 4) + 5.12 * (x ** 3) + 21.312 * (x ** 2) - 38.016 * x + 17.28
     return funcion
 
 
 def Funcion3():
     x = symbols('x')
-    funcion = (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
+    funcion = (x - 1.5) * exp(-4 * ((x - 1.5) ** 2))
     return funcion
 
 
@@ -54,10 +54,10 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
 
 
 def BuscarRaices(Funcion, tolerancia):
-    raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 50)
-    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 50, 1)
-    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 50, 1)
-    raizSecante, historiaSecante = Secante(Funcion, 2, 0, tolerancia, 50)
+    raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 100)
+    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1)
+    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, 1)
+    raizSecante, historiaSecante = Secante(Funcion, 0, 2, tolerancia, 100)
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
@@ -69,13 +69,15 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
     ordenSecante, historiaOrdenSecante = calcularHistoriaDeOrden(historiaSecante)
 
-    constanteBiseccion, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historiaBiseccion,
-                                                                                        ordenBiseccion)
+    constanteBiseccion, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historiaBiseccion, ordenBiseccion)
     constanteNewton, historiaConstanteNewton = calcularHistoraConstanteAsintotica(historiaNewton, ordenNewton)
-    constanteNewtonModificado, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(
-        historiaNewtonModificado, ordenNewtonModificado)
+    constanteNewtonModificado, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historiaNewtonModificado,
+                                                                                                      ordenNewtonModificado)
     constanteSecante, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historiaSecante, ordenSecante)
-
+    print(historiaConstanteBiseccion)
+    print(historiaConstanteNewton)
+    print(historiaConstanteNewtonModificado)
+    print(historiaConstanteSecante)
     print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
 
     graficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton, \
