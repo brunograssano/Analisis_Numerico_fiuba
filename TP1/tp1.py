@@ -44,19 +44,24 @@ def BuscarRaices(Funcion, tolerancia):
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModificado,historiaSecante):
-    ordenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
-    ordenNewton = calcularHistoriaDeOrden(historiaNewton)
-    ordenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
-    ordenSecante = calcularHistoriaDeOrden(historiaSecante)
+  
+    ordenBiseccion, historiaOrdenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
+    ordenNewton, historiaOrdenNewton = calcularHistoriaDeOrden(historiaNewton)
+    ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
+    ordenSecante, historiaOrdenSecante = calcularHistoriaDeOrden(historiaSecante)
 
-    constanteBiseccion = calcularHistoraConstanteAsintotica(historia, alfa)
-    constanteNewton = calcularHistoraConstanteAsintotica(historia, alfa)
-    constanteNewtonModificado = calcularHistoraConstanteAsintotica(historia, alfa)
-    constanteSecante = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteBiseccion, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteNewton, historiaConstanteNewton = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteNewtonModificado, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteSecante, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historia, alfa)
 
     print("Se mostraran ahora las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos")
-    graficarOrdenDeConvergencia(ordenBiseccion,ordenNewton,ordenNewtonModificado,ordenSecante)
-    graficarConstanteAsintotica(constanteBiseccion,constanteNewton,constanteNewtonModificado,constanteSecante)
+    
+    graficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton,\
+                                historiaOrdenNewtonModificado, historiaOrdenSecante)
+        
+    graficarConstanteAsintotica(historiaConstanteBiseccion, historiaConstanteNewton\
+                                ,historiaConstanteNewtonModificado, historiaConstanteSecante)
 
 def BuscarYComparar(Funcion, tolerancia): #mejor nombre?
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
