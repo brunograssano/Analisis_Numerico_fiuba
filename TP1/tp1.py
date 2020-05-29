@@ -1,15 +1,15 @@
 import numpy as np
 from sympy import *
 
-from metodos_numericos import Biseccion
-from metodos_numericos import Secante
-from metodos_numericos import NewtonRaphson
-from metodos_numericos import NewtonRaphsonModificado
+from TP1.metodos_numericos import Biseccion
+from TP1.metodos_numericos import Secante
+from TP1.metodos_numericos import NewtonRaphson
+from TP1.metodos_numericos import NewtonRaphsonModificado
 
-from calculadoraAlfaLambda import calcularHistoriaDeOrden
-from calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
+from TP1.calculadoraAlfaLambda import calcularHistoriaDeOrden
+from TP1.calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
 
-from Graficador import *
+from TP1.Graficador import *
 
 
 def Funcion1():
@@ -54,10 +54,10 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
 
 
 def BuscarRaices(Funcion, tolerancia):
-    raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 100)
-    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1)
-    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, 1)
-    raizSecante, historiaSecante = Secante(Funcion, 0, 2, tolerancia, 100)
+    raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
+    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1.0)
+    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, 1.0)
+    raizSecante, historiaSecante = Secante(Funcion, 0.0, 2.0, tolerancia, 100)
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
