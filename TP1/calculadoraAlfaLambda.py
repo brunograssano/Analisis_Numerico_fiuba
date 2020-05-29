@@ -17,9 +17,9 @@ def calcularHistoriaDeOrden(historia):
     tope = len(historia)
     if(tope < 5):
         raise Exception("No hay suficientes datos para calcular la historia de orden.")
-    historiaDeOrden = np.zeros((tope-4,2))
+    historiaDeOrden = np.zeros((tope-4, 2))
 
-    for i in range(2,tope-2):
+    for i in range(2, tope-2):
         historiaDeOrden[i - 2][1] = ordenDeConvergencia(historia[i-2][1], historia[i-1][1], historia[i][1], historia[i+1][1])
         historiaDeOrden[i - 2][0] = i
     
