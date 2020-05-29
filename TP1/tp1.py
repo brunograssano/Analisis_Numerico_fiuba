@@ -47,10 +47,10 @@ def Introduccion():
 
 
 def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia):
-    print("* Raiz Biseccion = {0} +- {1}".format(raizBiseccion, tolerancia))
-    print("* Raiz Newton = {0} +- {1}".format(raizNewton, tolerancia))
-    print("* Raiz Newton modificado = {0} +- {1}".format(raizNewtonModificado, tolerancia))
-    print("* Raiz Secante = {0} +- {1}".format(raizSecante, tolerancia))
+    print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
+    print("* Raiz Newton = {0} +- {1}".format('{0:.5f}'.format(raizNewton), '{0:.5f}'.format(tolerancia)))
+    print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado), '{0:.5f}'.format(tolerancia)))
+    print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
 
 
 def BuscarRaices(Funcion, tolerancia):
