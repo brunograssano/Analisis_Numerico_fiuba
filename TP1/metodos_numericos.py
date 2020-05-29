@@ -5,14 +5,12 @@ from sympy import *
 def Derivar(expresion):
     x = symbols('x')
     expresionDerivada = Derivative(expresion, x)
-    expresionDerivada = expresionDerivada.doit()
-    return expresionDerivada
+    return expresionDerivada.doit()
 
 
 def Evaluar(expresion, valor):
     x = symbols('x')
-    valor = expresion.subs(x, valor)
-    return valor
+    return expresion.subs(x, valor)
 
 
 """Implementacion del algoritmo de biseccion de forma recursiva.
@@ -59,7 +57,7 @@ def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, his
     Si se cumplen las condiciones se enviara el punto aproximado a la raiz y la historia de iteraciones."""
 def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
     historia = np.zeros((maxIteraciones, 2))
-    if (tolerancia < 0 or maxIteraciones < 0):
+    if tolerancia < 0 or maxIteraciones < 0:
         print(" El intervalo no provee información suficiente para asegurar una raiz")
         return None
     return SecanteRecursivo(Funcion, x1, x0, tolerancia, 0, maxIteraciones, historia)
