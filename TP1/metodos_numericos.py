@@ -4,6 +4,8 @@ import numpy as np
 
 """Implementacion del algoritmo de biseccion de forma recursiva.
     Los valores enviados son validos."""
+
+"Prueba Commits"
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
