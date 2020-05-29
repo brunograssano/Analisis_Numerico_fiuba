@@ -1,5 +1,14 @@
 import numpy as np
 
+def Derivar(expresion):
+    x = symbols('x')
+    expresionDerivada = Derivative(expresion,x)
+    expresionDerivada = expresionDerivada.doit()
+    return expresionDerivada
+
+def Evaluar(expresion,valor):
+    valor = expresion.subs(x,valor)
+    return valor
 
 
 """Implementacion del algoritmo de biseccion de forma recursiva.
