@@ -60,6 +60,8 @@ def BuscarRaices(Funcion, tolerancia):
     raizSecante, historiaSecante = Secante(Funcion, 0.0, 2.0, tolerancia, 100)
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
+    graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
+
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 
@@ -69,15 +71,12 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
     ordenSecante, historiaOrdenSecante = calcularHistoriaDeOrden(historiaSecante)
 
-    constanteBiseccion, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historiaBiseccion, ordenBiseccion)
-    constanteNewton, historiaConstanteNewton = calcularHistoraConstanteAsintotica(historiaNewton, ordenNewton)
-    constanteNewtonModificado, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historiaNewtonModificado,
+    historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historiaBiseccion, ordenBiseccion)
+    historiaConstanteNewton = calcularHistoraConstanteAsintotica(historiaNewton, ordenNewton)
+    historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historiaNewtonModificado,
                                                                                                       ordenNewtonModificado)
-    constanteSecante, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historiaSecante, ordenSecante)
-    print(historiaConstanteBiseccion)
-    print(historiaConstanteNewton)
-    print(historiaConstanteNewtonModificado)
-    print(historiaConstanteSecante)
+    historiaConstanteSecante = calcularHistoraConstanteAsintotica(historiaSecante, ordenSecante)
+
     print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
 
     graficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton, \
@@ -87,7 +86,7 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
                                 historiaConstanteNewtonModificado, historiaConstanteSecante)
 
 
-def BuscarYComparar(Funcion, tolerancia):  # mejor nombre?
+def BuscarYComparar(Funcion, tolerancia):
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
 
