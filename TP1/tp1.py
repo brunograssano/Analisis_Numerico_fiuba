@@ -27,11 +27,11 @@ def Introduccion():
 
 def GraficoDeFunciones():
 
-def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante):
-    print("Raiz Biseccion: ", raizBiseccion)
-    print("Raiz Newton: ", raizNewton)
-    print("Raiz Newton modificado:", raizNewtonModificado)
-    print("Raiz Secante: ", raizSecante)
+def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante,tolerancia):
+    print("Raiz Biseccion = {0} +- {1}".format(raizBiseccion, tolerancia))
+    print("Raiz Newton = {0} +- {1}".format(raizNewton, tolerancia))
+    print("Raiz Newton modificado = {0} +- {1}".format(raizNewtonModificado, tolerancia))
+    print("Raiz Secante = {0} +- {1}".format(raizSecante, tolerancia))
 
 def BuscarRaices(Funcion, tolerancia):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 50)
@@ -39,7 +39,7 @@ def BuscarRaices(Funcion, tolerancia):
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphson()
     raizSecante, historiaSecante = Secante()
 
-    MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante)
+    MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModificado,historiaSecante):
