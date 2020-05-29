@@ -1,4 +1,5 @@
 import numpy as np
+from sympy import *
 
 from metodos_numericos import Biseccion
 from metodos_numericos import Secante

@@ -10,6 +10,7 @@ def Derivar(expresion):
 
 
 def Evaluar(expresion, valor):
+    x = symbols('x')
     valor = expresion.subs(x, valor)
     return valor
 
