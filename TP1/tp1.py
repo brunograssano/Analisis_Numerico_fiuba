@@ -68,10 +68,10 @@ def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModifica
     ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
     ordenSecante, historiaOrdenSecante = calcularHistoriaDeOrden(historiaSecante)
 
-    constanteBiseccion, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historia, alfa)
-    constanteNewton, historiaConstanteNewton = calcularHistoraConstanteAsintotica(historia, alfa)
-    constanteNewtonModificado, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historia, alfa)
-    constanteSecante, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historia, alfa)
+    constanteBiseccion, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historiaBiseccion, ordenBiseccion)
+    constanteNewton, historiaConstanteNewton = calcularHistoraConstanteAsintotica(historiaNewton, ordenNewton)
+    constanteNewtonModificado, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historiaNewtonModificado,ordenNewtonModificado)
+    constanteSecante, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historiaSecante, ordenSecante)
 
     print("Se mostraran ahora las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos")
     
