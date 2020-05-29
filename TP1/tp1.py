@@ -67,7 +67,7 @@ def ComparacionDeMetodos(historiaBiseccion,historiaNewton,historiaNewtonModifica
 def BuscarYComparar(Funcion, tolerancia): #mejor nombre?
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
-    MostrarRaices(raizBiseccion,raizNewton,raizNewtonModificado,raizSecante)
+
 
 
 def BusquedaDeRaices(tolerancia):
