@@ -6,7 +6,7 @@ import numpy as np
     Los valores enviados son validos."""
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
-    historia[iteracion] = (iteracion, punatoMedio)
+    historia[iteracion] = (iteracion, puntoMedio)
     if Funcion(puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
         historia = historia[:iteracion+1]
         return puntoMedio, historia
@@ -29,22 +29,21 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
 
 """Implementacion del algoritmo del metodo de la secante de forma recursiva.
     Los valores enviados son validos."""
-def SecanteRecursivo(funcion,x1,x0,tolerancia,iteracion,maxIteraciones,historia):
+def SecanteRecursivo(Funcion,x1,x0,tolerancia,iteracion,maxIteraciones,historia):
     historia[iteracion]=(iteracion,x1)
     if(abs(x0-x1)<tolerancia):
         historia = historia[:iteracion+1]
         return x1,historia
-    x2=x1-funcion(x1)*(x1-x0)/(funcion(x1)-funcion(x0))
-    return SecanteRecursivo(funcion,x2,x1,tolerancia,iteracion+1,maxIteraciones,historia)
+    x2=x1-Funcion(x1)*(x1-x0)/(Funcion(x1)-Funcion(x0))
+    return SecanteRecursivo(Funcion,x2,x1,tolerancia,iteracion+1,maxIteraciones,historia)
 
 """Funcion que da inicio al algoritmo del metodo de la secante implementado de forma recursiva.
     La tolerancia y numero de iteraciones no pueden ser negativos.
     Si se cumplen las condiciones se enviara el punto aproximado a la raiz y la historia de iteraciones."""
-
-def Secante(funcion,x1,x0,tolerancia,maxIteraciones):
+def Secante(Funcion,x1,x0,tolerancia,maxIteraciones):
     historia=np.zeros((maxIteraciones,2))
     if(tolerancia<0 or maxIteraciones<0):
         print(" El intervalo no provee información suficiente para asegurar una raiz")
         return None
-    return SecanteRecursivo(funcion,x1,x0,tolerancia,0,maxIteraciones,historia)
+    return SecanteRecursivo(Funcion,x1,x0,tolerancia,0,maxIteraciones,historia)
 
