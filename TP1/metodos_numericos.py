@@ -62,28 +62,28 @@ def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
         return None
     return SecanteRecursivo(Funcion, x1, x0, tolerancia, 0, maxIteraciones, historia)
 
+def NewtonRaphsonRecursivo(funcion,derivada,tolerancia,maxIteraciones,semilla,iteracion,historia):
+    historia[iteracion] = (iteracion, semilla)
+    valorFuncion = Evaluar(funcion, semilla)
+    valorDerivada = Evaluar(derivada, semilla)
+    semilla = semilla - (valorFuncion / valorDerivada)
+    if abs(semilla - historia[iteracion - 1][1]) < tolerancia:
+        historia = historia[:iteracion + 1]
+        return semilla, historia
+    return (funcion,derivada,tolerancia,maxIteraciones,semilla,iteracion+1,historia)
 
 def NewtonRaphson(funcion, tolerancia, maxIteraciones, semilla):
     historia = np.zeros((maxIteraciones, 2))
     if tolerancia < 0 or maxIteraciones < 0:
         print(" El intervalo no provee información suficiente para asegurar una raiz")
         return None
-    i = 0
-    historia[i] = (i, semilla)
     derivada = Derivar(funcion)
-    while i < maxIteraciones:
-        i = i + 1
-        valorFuncion = Evaluar(funcion, semilla)
-        valorDerivada = Evaluar(derivada, semilla)
-        semilla = semilla - (valorFuncion / valorDerivada)
-        historia[i] = (i, semilla)
-        if abs(semilla - historia[i - 1][1]) < tolerancia:
-            historia = historia[:i + 1]
-            return semilla, historia
-    return semilla, historia
+    return NewtonRaphsonRecursivo(funcion,derivada,tolerancia,maxIteraciones,semilla,0,historia)
 
 
 def NewtonRaphsonModificado(funcion, tolerancia, maxIteraciones, semilla):
     derivada = Derivar(funcion)
     funcionNRM = funcion / derivada
     return NewtonRaphson(funcionNRM, tolerancia, maxIteraciones, semilla)
+
+
