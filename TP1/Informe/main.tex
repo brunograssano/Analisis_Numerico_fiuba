@@ -40,11 +40,21 @@
 \tableofcontents % Índice general
 
 \section{Introducción}\label{sec:intro}
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+En este trabajo práctico creamos un programa para la búsqueda de raíces de funciones a través de los siguientes métodos numéricos aprendidos en la materia:
+\begin{itemize}
+\item Bisección
+\item Newton-Raphson
+\item Newton-Raphson modificado
+\item Secante
+\end{itemize}
+A través del análisis de los resultados pudimos comparar los distintos métodos, su orden de convergencia y su conveniencia en tiempos de cómputo y error en el resultado.
+\\Además, calculamos las raíces mediante la biblioteca de Python numpy, de esta manera pudimos ver el correcto funcionamiento de las funciones programadas.
 
 \section{Objetivos}\label{sec:objetivos}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+El objetivo del trabajo práctico es obtener la raíz mediante los métodos numéricos dados, luego, analizar el orden de convergencia P y la constante asintótica \begin{align}
+\lambda
+\end{align}. 
+\\Con este fin graficamos las funciones, utilizando la biblioteca matplotlib.pyplot para conocer el intervalo en el cuál se encuentra la raíz, teniendo de esa manera las semillas necesarias para los métodos. Obtenidas las raíces, con la historia de los resultados podemos observar la convergencia a la raíz con la cota de error dada.
 \section{Gráficos}\label{sec:graficos}
 
 \begin{figure}[H]
@@ -67,7 +77,64 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \section{Búsqueda de raíces}\label{sec:busqueda_raices}
 
-Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+\subsection{Bisección}\label{sec:biseccion}
+El método de bisección halla la raíz utilizada mediante la siguiente fórmula por métodos iterativos hasta que \begin{align}
+f(r_n)=0\pm \mbox{cota de error}
+\end{align} , tomando los límites iniciales de intervalo \begin{align}
+{a_n}
+\end{align} y 
+\begin{align}
+{b_n}
+\end{align}:
+\\\begin{align}
+{{\mbox{Sea }r_n = \frac{a_n+b_n}{2}\mbox{, entonces, en la siguiente iteración}\\\end{align}
+\begin{align}\centering
+\quad a_{n+1} =\left\{ \begin{array}{lcc}
+             a_n & \mbox{si } f(a_n)\cdot f(r_n) <0 \\
+             \\ r_n & \mbox{si } f(a_n)\cdot f(r_n) > 0 \\
+             \end{array}
+   \right. \end{align}
+\\
+\begin{align}\centering
+\quad b_{n+1} =\left\{ \begin{array}{lcc}
+             b_n & \mbox{ si } f(b_n)\cdot f(r_n) < 0 \\
+             \\r_n & \mbox{ si } f(b_n)\cdot f(r_n) > 0 \\
+             \end{array}
+   \right. }
+}}\end{align}
+\\\\Los resultados obtenidos fueron los siguientes:
+
+
+\subsection{Newton-Raphson}\label{sec:biseccion}
+El método de Newton-Raphson halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
+\begin{align}\centering
+\quad r_{n} =r_{n-1}-\frac{f (r_{n-1})}{f'(r_{n-1})}
+}}\end{align} hasta que \begin{align}
+r_{n}-r_{n-1} < \mbox{cota de error}
+\end{align}
+\\\\Los resultados obtenidos fueron los siguientes:
+
+
+\subsection{Newton-Raphson modificado}\label{sec:biseccion}
+El método de Newton-Raphson modificado le aplica el método de Newton-Raphson a la función
+\begin{align}
+\mu =\frac{f (x)}{f'(x)}
+}}\end{align} y halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
+\begin{align}\centering
+\quad r_{n+1}=r_n-\frac{f(p_n).f'(r_n)} {f'(r_n)^2-f(r_n).f''(r_n)}
+}}\end{align} hasta que \begin{align}
+r_{n}-r_{n-1} < \mbox{cota de error}
+\end{align}
+\\\\Los resultados obtenidos fueron los siguientes:
+
+\subsection{Secante}\label{sec:biseccion}
+El método de la secante halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
+\begin{align}\centering
+\quad r_{n} =r_{n-1}-\frac{f (r_{n-1})*(r_{n-1}-r_{n-2})}{f(r_{n-1})-f(r_{n-2})}
+}}\end{align} hasta que \begin{align}
+r_{n}-r_{n-1} < \mbox{cota de error}
+\end{align}
+\\\\Los resultados obtenidos fueron los siguientes:
 
 \section{Comparación de resultados}\label{sec:comparacion_resultados}
 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
