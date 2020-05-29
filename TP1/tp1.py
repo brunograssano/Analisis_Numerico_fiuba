@@ -14,15 +14,20 @@ from Graficador import *
 
 
 def Funcion1(x):
-    return (x ** 2) - 2
+    x = symbols('x')
+    funcion = (x ** 2) - 2
+    return funcion
 
 
 def Funcion2(x):
-    return (x ** 5) - 6.6 * (x ** 4) + 21.312 * (x ** 2) - 38.016 * x + 17.28
-
+    x = symbols('x')
+    funcion = (x ** 5) - 6.6 * (x ** 4) + 21.312 * (x ** 2) - 38.016 * x + 17.28
+    return funcion
 
 def Funcion3(x):
-    return (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
+    x = symbols('x')
+    funcion = (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
+    return funcion
 
 
 def Introduccion():
