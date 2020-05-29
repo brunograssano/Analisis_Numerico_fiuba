@@ -15,13 +15,15 @@ def ordenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
 
 def calcularHistoriaDeOrden(historia): 
     tope = len(historia)
+    if(tope < 5):
+        raise Exception("No hay suficientes datos para calcular la historia de orden.")
     historiaDeOrden = np.zeros((tope-4,2))
 
     for i in range(2,tope-2):
         historiaDeOrden[i - 2][1] = ordenDeConvergencia(historia[i-2][1], historia[i-1][1], historia[i][1], historia[i+1][1])
         historiaDeOrden[i - 2][0] = i
-
-    return historiaDeOrden
+    
+    return historiaDeOrden[tope-5][1], historiaDeOrden
 
 
 def constanteAsintotica(xN, xNmas1, alfa, raiz):
@@ -37,4 +39,4 @@ def calcularHistoraConstanteAsintotica(historia, alfa):
     for i in range(0, tope-2):
         historiaConstanteAsintotica[i][1] = constanteAsintotica(historia[i][1], historia[i+1][1], alfa, raiz)
         historiaConstanteAsintotica[i][0] = i
-    return historiaConstanteAsintotica
+    return historiaConstanteAsintotica[tope-3][1], historiaConstanteAsintotica
