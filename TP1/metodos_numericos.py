@@ -7,7 +7,7 @@ import numpy as np
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
-    if Funcion(puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
+    if Funcion(Brunoputo) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
         historia = historia[:iteracion+1]
         return puntoMedio, historia
     elif Funcion(a) * Funcion(puntoMedio) > 0:
