@@ -2,16 +2,19 @@
 
 **Métodos:**
 * 🔷 Bisección. ☑
-* 🔺 Newton-Raphson. [WIP]
-* 🔶 Newton-Raphson modificado. [WIP]
-* 🌳 Secante. [WIP]
+* 🔺 Newton-Raphson. ☑
+* 🔶 Newton-Raphson modificado. ☑
+* 🌳 Secante. ☑
 
 **Informe**
     [WIP]
 
 **Gráficos**
-    [WIP]
+    ☑
     
+**Ordenes**
+    Send help pls
+
 ## Convención a usar
 * *camelCase* para variables
 * *CamelCase* para funciones
