@@ -1,5 +1,16 @@
-from metodos_numericos import *
 import numpy as np
+
+from metodos_numericos import Biseccion
+from metodos_numericos import Secante
+from metodos_numericos import NewtonRaphson
+from metodos_numericos import NewtonRaphsonModificado
+
+from calculadoraAlfaLambda import calcularHistoriaDeOrden
+from calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
+
+from Graficador import *
+
+
 
 
 def Funcion1(x):

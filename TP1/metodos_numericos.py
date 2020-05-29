@@ -1,5 +1,6 @@
 import numpy as np
 from sympy import *
+
 def Derivar(expresion):
     x = symbols('x')
     expresionDerivada = Derivative(expresion,x)
@@ -13,8 +14,6 @@ def Evaluar(expresion,valor):
 
 """Implementacion del algoritmo de biseccion de forma recursiva.
     Los valores enviados son validos."""
-
-"Prueba Commits"
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
