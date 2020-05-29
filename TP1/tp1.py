@@ -14,18 +14,18 @@ from Graficador import *
 
 
 
-def Funcion1(x):
+def Funcion1():
     x = symbols('x')
     funcion = (x ** 2) - 2
     return funcion
 
 
-def Funcion2(x):
+def Funcion2():
     x = symbols('x')
     funcion = (x ** 5) - 6.6 * (x ** 4) + 21.312 * (x ** 2) - 38.016 * x + 17.28
     return funcion
 
-def Funcion3(x):
+def Funcion3():
     x = symbols('x')
     funcion = (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
     return funcion
@@ -54,9 +54,9 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante,t
 
 def BuscarRaices(Funcion, tolerancia):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0, 2, tolerancia, 50)
-    raizNewton, historiaNewton = NewtonRaphson()
-    raizNewtonModificado, historiaNewtonModificado = NewtonRaphson()
-    raizSecante, historiaSecante = Secante()
+    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 50, 1)
+    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 50, 1)
+    raizSecante, historiaSecante = Secante(Funcion, 2, 0, tolerancia, 50)
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
@@ -89,13 +89,13 @@ def BuscarYComparar(Funcion, tolerancia): #mejor nombre?
 
 def BusquedaDeRaices(tolerancia):
     print("Buscamos y comparamos las constantes para la primera funcion")
-    BuscarYComparar(Funcion1,tolerancia)
+    BuscarYComparar(Funcion1(), tolerancia)
 
     print("Buscamos y comparamos las constantes para la segunda funcion")
-    BuscarYComparar(Funcion2,tolerancia)
+    BuscarYComparar(Funcion2(), tolerancia)
 
     print("Buscamos y comparamos las constantes para la tercera funcion")
-    BuscarYComparar(Funcion3,tolerancia)
+    BuscarYComparar(Funcion3(), tolerancia)
 
 
 def main():
