@@ -5,31 +5,60 @@ import numpy as np
 #Falta toquetear cómo queremos que aparezca la información.
 #(Sí, son las mismas funciones con distintos title, si quieren lo reworkeamos, pero dsp [por eso el #]).
 
-def graficarMetodo(historia,metodo):
+def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante):
     plt.figure()
-    plt.plot(historia[:,0],historia[:,1],\
-             '-', lw=1, label = metodo)
+    plt.plot(historiaBiseccion[:,0],historiaBiseccion[:,1],\
+             '-', lw=1, label = "Método de la Biseccion", color = 'blue')
+    plt.plot(historiaNR[:,0],historiaNR[:,1],\
+             '-', lw=1, label = "Método de Newton Raphson", color = 'red')
+    plt.plot(historiaNRM[:,0],historiaNRM[:,1],\
+             '-', lw=1, label = "Método de Newton Raphson modificado", color = 'orange')
+    plt.plot(historiaSecante[:,0],historiaSecante[:,1],\
+             '-', lw=1, label = "Método de la Secante", color = 'green')
+    
     plt.xlabel('Iteración')
     plt.title('Raiz estimada')
     plt.grid(True)
     plt.show()
-
-def graficarOrdenDeConvergencia(historia):
+    
+#Recibe la historia de los órdenes de convergencia respecto a cada paso.
+#OC: "Orden de convergencia"
+def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson,\
+                                historiaOCNewtonRaphsonModif, historiaOCSec):
     plt.figure()
-    plt.plot(historia[:,0],historia[:,1],\
-             '-', lw=1, label = 'Alfa')
+    plt.plot(historiaOCBiseccion[:,0],historiaOCBiseccion[:,1],\
+             '-', lw=1, label = 'Método de la Bisección', color = 'blue')
+    plt.plot(historiaOCNewtonRaphson[:,0],historiaOCNewtonRaphson[:,1],\
+             '-', lw=1, label = 'Método de Newton Raphson', color = 'red')
+    plt.plot(historiaOCNewtonRaphsonModif[:,0],historiaOCNewtonRaphsonModif[:,1],\
+             '-', lw=1, label = 'Método de Newton Raphson modificado', color= 'orange')
+    plt.plot(historiaOCSec[:,0],historiaOCSec[:,1],\
+             '-', lw=1, label = 'Método de la Secante', color = 'green')
+    
     plt.xlabel('Iteración')
-    plt.title('Alfa estimado')
+    plt.title('Orden de convergencia estimado')
     plt.grid(True)
     plt.show()
 
 ## OJO, falta testearlo. Si bien teóricamente funciona, prácticamente no logra la convergencia teórica.
 #Cuando tengamos los demás métodos deberíamos probarlo.
 
-def graficarConstanteAsintotica(historia):
+#Recibe como parámetros las historias de las constantes asintóticas respecto a cada paso.
+# CA: "Constante asintótica"
+def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, historiaCASEC):
     plt.figure()
-    plt.plot(historia[:,0],historia[:,1],\
-             '-', lw=1, label = 'Lambda')
+    plt.plot(historiaCABIS[:,0], historiaCABIS[:,1],\
+             '-', lw=1, label = 'Método de la Bisección', color = 'blue')
+        
+    plt.plot(historiaCANR[:,0], historiaCANR[:,1],\
+             '-', lw=1, label = 'Método de Newton Raphson', color = 'red')
+    
+    plt.plot(historiaCANRM[:,0],historiaCANRM[:,1],\
+             '-', lw=1, label = 'Método de Newton Raphson modificado', color = 'orange')
+        
+    plt.plot(historiaCASEC[:,0],historiaCASEC[:,1],\
+             '-', lw=1, label = 'Método de la Secante', color = 'green')
+        
     plt.xlabel('Iteración')
     plt.title('Constante asintótica aproximada')
     plt.grid(True)
