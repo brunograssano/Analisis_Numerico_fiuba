@@ -3,20 +3,23 @@ import numpy as np
 
 
 def ordenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
+ 
     a = xNmas1 - xN
     b = xN - xNmenos1
-    numerador = np.log(abs(a/b))    
+   
+    numerador = np.log(abs(a/b))
 
     c = xN - xNmenos1
     d = xNmenos1 - xNmenos2
+    
     denominador = np.log(abs(c/d))
-
+    
     return numerador/denominador
 
 def calcularHistoriaDeOrden(historia): 
     tope = len(historia)
     if(tope < 5):
-        return None, np.array([])
+        return 0, np.array([])
     historiaDeOrden = np.zeros((tope-4, 2))
 
     for i in range(2, tope-2):
@@ -29,11 +32,13 @@ def calcularHistoriaDeOrden(historia):
 def constanteAsintotica(xN, xNmas1, alfa, raiz):
     numerador = abs((xNmas1 - raiz))
     denominador = abs(xN - raiz)**alfa
+    if(denominador == 0):
+        return float('inf')
     return numerador/denominador
 
 def calcularHistoraConstanteAsintotica(historia, alfa):
-    if(alfa == None):
-        return None, np.array([])
+    if(alfa == 0):
+        return 0, np.array([])
     tope = len(historia)
     raiz = historia[tope-1][1]
     
