@@ -1,7 +1,40 @@
 import matplotlib.pyplot as plt
+import numpy as np
+
+def maximoLen(historiaBIS, historiaNR, historiaNRM, historiaSEC):
+    bis = len(historiaBIS)
+    nr = len(historiaNR)
+    nrm = len(historiaNRM)
+    sec = len(historiaSEC)
+    return max(bis, nr, nrm, sec)
+
+def extenderHistoria(historia, tope):
+    
+    long = len(historia)
+    
+    historiaExtendida = np.zeros((tope,2))
+    
+    raiz = historia[long - 1][1]
+    
+    for i in range(0, tope):
+
+        if i < long:
+            historiaExtendida[i][0] = i
+            historiaExtendida[i][1] = historia[i][1]
+        else:
+            historiaExtendida[i][0] = i
+            historiaExtendida[i][1] = raiz
+
+    return historiaExtendida
 
 
 
+def extenderHistorias(historiaBIS, historiaNR, historiaNRM, historiaSEC):
+    tope = maximoLen(historiaBIS, historiaNR, historiaNRM, historiaSEC)
+    return extenderHistoria(historiaBIS, tope)\
+        , extenderHistoria(historiaNR, tope)\
+        , extenderHistoria(historiaNRM, tope)\
+        , extenderHistoria(historiaSEC, tope)
 
 def graficar(historia, nombre, color):
     if(historia.size != 0):
@@ -16,7 +49,10 @@ def graficar(historia, nombre, color):
 # Recibe las 4 historias de los métodos y las grafica.
 def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante):
     plt.figure()
-
+    
+    historiaBiseccion, historiaNR, historiaNRM, historiaSecante = \
+        extenderHistorias(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
+    
     graficar(historiaBiseccion, 'Biseccion', 'blue')
     graficar(historiaNR, 'Newton-Raphson', 'red')
     graficar(historiaNRM, 'NR modificado', 'orange')
