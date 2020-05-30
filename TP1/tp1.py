@@ -57,7 +57,7 @@ def BuscarRaices(Funcion, tolerancia):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
     raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1.0)
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, 1.0)
-    raizSecante, historiaSecante = Secante(Funcion, 0.0, 2.0, tolerancia, 100)
+    raizSecante, historiaSecante = Secante(Funcion, 2.0, 0.0, tolerancia, 100)
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
