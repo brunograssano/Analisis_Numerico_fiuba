@@ -34,7 +34,7 @@ def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, his
 def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
     historia = np.zeros((maxIteraciones, 2))
     if Evaluar(Funcion, a) * Evaluar(Funcion, b) > 0 or tolerancia < 0 or maxIteraciones < 0:
-        print(" El intervalo no provee información suficiente para asegurar una raiz")
+        print(" El intervalo en biseccion no provee información suficiente para asegurar una raiz")
         return None, np.array([])
     return BiseccionRecursivo(Funcion, a, b, tolerancia, 0, maxIteraciones, historia)
 
@@ -43,7 +43,6 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
     Los valores enviados son validos."""
 def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, historia):
     if iteracion >= maxIteraciones - 1:
-        print("Con Secante no converge")
         return None, historia
     
     historia[iteracion] = (iteracion, x1)
@@ -62,14 +61,13 @@ def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, his
 def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
     historia = np.zeros((maxIteraciones, 2))
     if tolerancia < 0 or maxIteraciones < 0:
-        print(" El intervalo no provee información suficiente para asegurar una raiz")
+        print(" El intervalo en secante no provee información suficiente para asegurar una raiz")
         return None, np.array([])
     return SecanteRecursivo(Funcion, x1, x0, tolerancia, 0, maxIteraciones, historia)
 
 def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, iteracion, historia):
     
     if iteracion >= maxIteraciones - 1:
-        print("Con Newton Raphson no converge.")
         return None, historia
     
     historia[iteracion] = (iteracion, pN)
@@ -90,7 +88,7 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, it
 def NewtonRaphson(funcion, tolerancia, maxIteraciones, semilla):
     historia = np.zeros((maxIteraciones, 2))
     if tolerancia < 0 or maxIteraciones < 0:
-        print(" El intervalo no provee información suficiente para asegurar una raiz")
+        print(" El intervalo en Newton Raphson no provee información suficiente para asegurar una raiz")
         return None, np.array([])
     derivada = Derivar(funcion)
     return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, 0, historia)
