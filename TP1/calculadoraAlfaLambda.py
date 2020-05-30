@@ -52,7 +52,7 @@ def constanteAsintotica(xN, xNmas1, alfa, raiz):
     return numerador/denominador
 
 def calcularHistoraConstanteAsintotica(historia, alfa):
-    if(alfa == 0):
+    if(alfa <= 0):
         return 0, np.array([])
     tope = len(historia)
     raiz = historia[tope-1][1]
