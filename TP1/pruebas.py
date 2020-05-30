@@ -23,22 +23,30 @@ def funcionPrueba4():
     return x**5 - 2
 
 # Pruebas de uso
+print("BISECCION")
 raizB, historiaB = Biseccion(funcionPrueba1(), 0, 2, 1e-5, 50)
 print(raizB)
 print(historiaB)
+
+print("NR")
 
 raizNR, historiaNR = NewtonRaphson(funcionPrueba1(), 1e-5, 30, 1)
 print(raizNR)
 print(historiaNR)
 
+print("NRM")
+
 raizNRM, historiaNRM = NewtonRaphsonModificado(funcionPrueba1(), 1e-5, 30, 1)
 print(raizNRM)
 print(historiaNRM)
+
+print("SECANTE")
 
 raizSEC, historiaSEC = Secante(funcionPrueba1(), 0, 2, 1e-5, 50)
 print(raizSEC)
 print(historiaSEC)
 
+print ("HISTORIA DE ORDEN")
 alfaB, ordenB =calcularHistoriaDeOrden(historiaB)
 print(alfaB)
 print(ordenB)
