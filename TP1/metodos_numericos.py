@@ -69,13 +69,13 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, it
     
     if(iteracion >= maxIteraciones -1):
         print("El método no converge.")
-        return 0, historia
+        return pN, historia
     
     historia[iteracion] = (iteracion, pN)
     valorFuncion = Evaluar(funcion, pN)
     valorDerivada = Evaluar(derivada, pN)
     if(valorDerivada == 0):
-        return 0, historia
+        return pN, historia
     pNmas1 = pN - (valorFuncion / valorDerivada)
     if(pNmas1 == pN):
         historia = historia[:iteracion + 1]
