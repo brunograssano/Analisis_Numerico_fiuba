@@ -53,10 +53,10 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
     print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
 
 
-def BuscarRaices(Funcion, tolerancia):
+def BuscarRaices(Funcion, tolerancia, semillaNewton):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
     raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1.0)
-    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, 1.0)
+    raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
     raizSecante, historiaSecante = Secante(Funcion, 2.0, 0.0, tolerancia, 100)
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
@@ -86,20 +86,20 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
                                 historiaConstanteNewtonModificado, historiaConstanteSecante)
 
 
-def BuscarYComparar(Funcion, tolerancia):
-    historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia)
+def BuscarYComparar(Funcion, tolerancia,semillaNewton):
+    historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia,semillaNewton)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
 
 
 def BusquedaDeRaices(tolerancia):
     print("\nBuscamos y comparamos las constantes para la primera funcion\n")
-    BuscarYComparar(Funcion1(), tolerancia)
+    BuscarYComparar(Funcion1(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la segunda funcion\n")
-    BuscarYComparar(Funcion2(), tolerancia)
+    BuscarYComparar(Funcion2(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la tercera funcion\n")
-    BuscarYComparar(Funcion3(), tolerancia)
+    BuscarYComparar(Funcion3(), tolerancia, 1.3)
 
 
 def main():
