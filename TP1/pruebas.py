@@ -24,9 +24,25 @@ def funcionPrueba4():
 
 # Pruebas de uso
 raizB, historiaB = Biseccion(funcionPrueba1(), 0, 2, 1e-5, 50)
+print(raizB)
+print(historiaB)
 
 raizNR, historiaNR = NewtonRaphson(funcionPrueba1(), 1e-5, 30, 1)
+print(raizNR)
+print(historiaNR)
 
 raizNRM, historiaNRM = NewtonRaphsonModificado(funcionPrueba1(), 1e-5, 30, 1)
+print(raizNRM)
+print(historiaNRM)
 
 raizSEC, historiaSEC = Secante(funcionPrueba1(), 0, 2, 1e-5, 50)
+print(raizSEC)
+print(historiaSEC)
+
+alfaB, ordenB =calcularHistoriaDeOrden(historiaB)
+print(alfaB)
+print(ordenB)
+
+alfaSEC, ordenSEC =calcularHistoriaDeOrden(historiaSEC)
+print(alfaSEC)
+print(ordenSEC)
