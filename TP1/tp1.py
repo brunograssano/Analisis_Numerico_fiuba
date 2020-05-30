@@ -10,7 +10,7 @@ from TP1.calculadoraAlfaLambda import calcularHistoriaDeOrden
 from TP1.calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
 
 from TP1.Graficador import *
-#probandogit
+
 
 def Funcion1():
     x = symbols('x')
@@ -105,7 +105,7 @@ def BusquedaDeRaices(tolerancia):
 def main():
     Introduccion()
     BusquedaDeRaices(1e-5)
-    BusquedaDeRaices(1e-13)
+    #BusquedaDeRaices(1e-13)
 
 
 if __name__ == "__main__":
