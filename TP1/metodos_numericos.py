@@ -74,8 +74,9 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, it
     historia[iteracion] = (iteracion, pN)
     valorFuncion = Evaluar(funcion, pN)
     valorDerivada = Evaluar(derivada, pN)
-    
-    pNmas1 = pN- (valorFuncion / valorDerivada)
+    if(valorDerivada == 0):
+        return 0, historia
+    pNmas1 = pN - (valorFuncion / valorDerivada)
     if(pNmas1 == pN):
         historia = historia[:iteracion + 1]
         return pN, historia
