@@ -10,7 +10,7 @@ from TP1.calculadoraAlfaLambda import calcularHistoriaDeOrden
 from TP1.calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
 
 from TP1.Graficador import *
-
+#probandogit
 
 def Funcion1():
     x = symbols('x')
