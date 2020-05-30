@@ -42,8 +42,9 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
 """Implementacion del algoritmo del metodo de la secante de forma recursiva.
     Los valores enviados son validos."""
 def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, historia):
-    if(iteracion >= maxIteraciones - 1):
-        return 0, historia
+    if iteracion >= maxIteraciones - 1:
+        print("Con Secante no converge")
+        return None, historia
     
     historia[iteracion] = (iteracion, x1)
     if abs(x0 - x1) < tolerancia or iteracion >= maxIteraciones:
@@ -67,17 +68,17 @@ def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
 
 def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, iteracion, historia):
     
-    if(iteracion >= maxIteraciones -1):
-        print("El método no converge.")
-        return 0, historia
+    if iteracion >= maxIteraciones - 1:
+        print("Con Newton Raphson no converge.")
+        return None, historia
     
     historia[iteracion] = (iteracion, pN)
     valorFuncion = Evaluar(funcion, pN)
     valorDerivada = Evaluar(derivada, pN)
     if(valorDerivada == 0):
-        return 0, historia
+        return None, historia
     pNmas1 = pN - (valorFuncion / valorDerivada)
-    if(pNmas1 == pN):
+    if pNmas1 == pN:
         historia = historia[:iteracion + 1]
         return pN, historia
     if abs(pNmas1 - historia[iteracion][1]) < tolerancia:

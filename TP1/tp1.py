@@ -47,10 +47,14 @@ def Introduccion():
 
 
 def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia):
-    print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
-    print("* Raiz Newton = {0} +- {1}".format('{0:.5f}'.format(raizNewton), '{0:.5f}'.format(tolerancia)))
-    print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado), '{0:.5f}'.format(tolerancia)))
-    print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
+    if raizBiseccion is not None:
+        print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
+    if raizNewton is not None:
+        print("* Raiz Newton = {0} +- {1}".format('{0:.5f}'.format(raizNewton), '{0:.5f}'.format(tolerancia)))
+    if raizNewtonModificado is not None:
+        print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado), '{0:.5f}'.format(tolerancia)))
+    if raizSecante is not None:
+        print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
 
 
 def BuscarRaices(Funcion, tolerancia, semillaNewton):
@@ -87,7 +91,7 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
 
 
 def BuscarYComparar(Funcion, tolerancia,semillaNewton):
-    historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia,semillaNewton)
+    historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia, semillaNewton)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
 
 
@@ -105,7 +109,7 @@ def BusquedaDeRaices(tolerancia):
 def main():
     Introduccion()
     BusquedaDeRaices(1e-5)
-    #BusquedaDeRaices(1e-13)
+    BusquedaDeRaices(1e-13)
 
 
 if __name__ == "__main__":
