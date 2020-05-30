@@ -42,6 +42,9 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
 """Implementacion del algoritmo del metodo de la secante de forma recursiva.
     Los valores enviados son validos."""
 def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, historia):
+    if(iteracion >= maxIteraciones - 1):
+        return 0, historia
+    
     historia[iteracion] = (iteracion, x1)
     if abs(x0 - x1) < tolerancia or iteracion >= maxIteraciones:
         historia = historia[:iteracion + 1]
@@ -62,15 +65,24 @@ def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
         return None
     return SecanteRecursivo(Funcion, x1, x0, tolerancia, 0, maxIteraciones, historia)
 
-def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, iteracion, historia):
-    historia[iteracion] = (iteracion, semilla)
-    valorFuncion = Evaluar(funcion, semilla)
-    valorDerivada = Evaluar(derivada, semilla)
-    semilla = semilla - (valorFuncion / valorDerivada)
-    if abs(semilla - historia[iteracion][1]) < tolerancia or iteracion >= maxIteraciones-1:
+def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, iteracion, historia):
+    
+    if(iteracion >= maxIteraciones -1):
+        print("El método no converge.")
+        return 0, historia
+    
+    historia[iteracion] = (iteracion, pN)
+    valorFuncion = Evaluar(funcion, pN)
+    valorDerivada = Evaluar(derivada, pN)
+    
+    pNmas1 = pN- (valorFuncion / valorDerivada)
+    if(pNmas1 == pN):
+        return pN, historia
+    if abs(pNmas1 - historia[iteracion][1]) < tolerancia:
         historia = historia[:iteracion + 1]
-        return semilla, historia
-    return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, iteracion + 1, historia)
+        return pNmas1, historia
+    
+    return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pNmas1, iteracion + 1, historia)
 
 def NewtonRaphson(funcion, tolerancia, maxIteraciones, semilla):
     historia = np.zeros((maxIteraciones, 2))
