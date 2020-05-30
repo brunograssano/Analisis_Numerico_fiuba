@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 
-import numpy as np
-
 
 # Recibe las 4 historias de los métodos y las grafica.
 def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante):
