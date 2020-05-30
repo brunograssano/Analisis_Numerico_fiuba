@@ -47,22 +47,46 @@ def Introduccion():
 
 
 def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia):
-    if raizBiseccion is not None:
-        print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
-    if raizNewton is not None:
-        print("* Raiz Newton = {0} +- {1}".format('{0:.5f}'.format(raizNewton), '{0:.5f}'.format(tolerancia)))
-    if raizNewtonModificado is not None:
-        print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado), '{0:.5f}'.format(tolerancia)))
-    if raizSecante is not None:
-        print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
-
+    if (tolerancia==1e-5):
+        if raizBiseccion is not None:
+            print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
+        else:
+            print("El Metodo de Biseccion no converge")
+        if raizNewton is not None:
+            print("* Raiz Newton = {0} +- {1}".format('{0:.5f}'.format(raizNewton), '{0:.5f}'.format(tolerancia)))
+        else:
+            print("El Metodo de Newton Raphson no converge")
+        if raizNewtonModificado is not None:
+            print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado), '{0:.5f}'.format(tolerancia)))
+        else:
+             print("El Metodo de Newton Raphson modificado no converge")
+        if raizSecante is not None:
+            print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
+        else:
+            print("El Metodo de la secante no converge")
+    if (tolerancia==1e-13):
+        if raizBiseccion is not None:
+            print("* Raiz Biseccion = {0} +- {1}".format('{0:.13f}'.format(raizBiseccion), '{0:.13f}'.format(tolerancia)))
+        else:
+            print("El Metodo de Biseccion no converge")
+        if raizNewton is not None:
+            print("* Raiz Newton = {0} +- {1}".format('{0:.13f}'.format(raizNewton), '{0:.13f}'.format(tolerancia)))
+        else:
+            print("El Metodo de Newton Raphson no converge")
+        if raizNewtonModificado is not None:
+            print("* Raiz Newton modificado = {0} +- {1}".format('{0:.13f}'.format(raizNewtonModificado), '{0:.13f}'.format(tolerancia)))
+        else:
+             print("El Metodo de Newton Raphson modificado no converge")
+        if raizSecante is not None:
+            print("* Raiz Secante = {0} +- {1}".format('{0:.13f}'.format(raizSecante), '{0:.13f}'.format(tolerancia)))
+        else:
+            print("El Metodo de la secante no converge")
 
 def BuscarRaices(Funcion, tolerancia, semillaNewton):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
     raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1.0)
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
     raizSecante, historiaSecante = Secante(Funcion, 2.0, 0.0, tolerancia, 100)
-
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
 
