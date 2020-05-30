@@ -40,8 +40,8 @@ def calcularHistoriaDeOrden(historia):
             historiaDeOrden[j][1] = ordenActual
             historiaDeOrden[j][0] = i
             j = j + 1
-    
-    return historiaDeOrden[tope-5][1], historiaDeOrden
+    historiaDeOrden = historiaDeOrden[:j]
+    return historiaDeOrden[j-1][1], historiaDeOrden
 
 
 def constanteAsintotica(xN, xNmas1, alfa, raiz):
