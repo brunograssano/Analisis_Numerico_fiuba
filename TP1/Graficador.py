@@ -8,7 +8,7 @@ def graficar(historia, nombre, color):
         plt.plot(historia[:, 0], historia[:, 1], \
                  '-', lw=1, label=nombre, color=color)
     else:
-        plt.plot(0,0,'*',lw=0, label = nombre +'No suf datos.', color = color)
+        plt.plot(0,0,'*',lw=0, label = nombre +'; no suf datos.', color = color)
 
 
 
