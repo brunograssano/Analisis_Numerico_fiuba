@@ -112,14 +112,16 @@ El método de Newton-Raphson halla la raíz a partir de una semilla inicial, ite
 }}\end{align} hasta que \begin{align}
 r_{n}-r_{n-1} < \mbox{cota de error}
 \end{align}
+\\\\Para el cálculo de las derivadas, utilizamos la función derivar de la biblioteca Sympy. De esa manera, logramos realizar un programa más versátil que no depende de conocer las derivadas de la función a evaluar.
 \\\\Los resultados obtenidos fueron los siguientes:
+
 
 
 \subsection{Newton-Raphson modificado}\label{sec:biseccion}
 El método de Newton-Raphson modificado le aplica el método de Newton-Raphson a la función
 \begin{align}
 \mu =\frac{f (x)}{f'(x)}
-}}\end{align} y halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
+}}\end{align}, obteniendo la derivada con la función derivar (biblioteca Sympy) y halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
 \begin{align}\centering
 \quad r_{n+1}=r_n-\frac{f(p_n).f'(r_n)} {f'(r_n)^2-f(r_n).f''(r_n)}
 }}\end{align} hasta que \begin{align}
@@ -138,5 +140,14 @@ r_{n}-r_{n-1} < \mbox{cota de error}
 
 \section{Comparación de resultados}\label{sec:comparacion_resultados}
 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+\section{Conclusiones}\label{sec:conclusiones}
+Las conclusiones que hallamos fueron las siguientes:
+\begin{itemize}
+\item sarasa
+\item malasa
+\item tuit de espert acorde
+\item Sobre la función 3, con los métodos NR y NR modificado, elegimos modificar la semilla inicial a 1,3, ya que observamos que con la semilla dada era imposible la convergencia (mediante iteraciones encontramos que el intervalo de convergencia es aproximadamente 1,26 < semilla < 1,74). Pensamos en utilizar algunos pasos de bisección para hallar una semilla más adecuada, pero nos encontramos con que en el segundo paso hallaba la raíz, haciendo que el método de NR sea en vano. Por lo tanto, nos pareció la decisión más adecuada elegir una semilla arbitriaramente dentro del intervalo de convergencia hallado.
+\end{itemize}
+
 
 \end{document}
