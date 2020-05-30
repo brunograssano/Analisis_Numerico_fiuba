@@ -33,12 +33,12 @@ def calcularHistoriaDeOrden(historia):
         return 0, np.array([])
     historiaDeOrden = np.zeros((tope-4, 2))
     
-    j = 2
+    j = 0
     for i in range(2, tope-2):
         ordenActual = ordenDeConvergencia(historia[i-2][1], historia[i-1][1], historia[i][1], historia[i+1][1])
         if(not(ordenActual == None)):    
-            historiaDeOrden[j - 2][1] = ordenActual
-            historiaDeOrden[j - 2][0] = i
+            historiaDeOrden[j][1] = ordenActual
+            historiaDeOrden[j][0] = i
             j = j + 1
     
     return historiaDeOrden[tope-5][1], historiaDeOrden
