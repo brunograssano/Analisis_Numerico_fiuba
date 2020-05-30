@@ -88,18 +88,18 @@ f(r_n)=0\pm \mbox{cota de error}
 {b_n}
 \end{align}:
 \\\begin{align}
-{{\mbox{Sea }r_n = \frac{a_n+b_n}{2}\mbox{, entonces, en la siguiente iteración}\\\end{align}
+{{\mbox{Sea }p_n = \frac{a_n+b_n}{2}\mbox{, entonces, en la siguiente iteración}\\\end{align}
 \begin{align}\centering
 \quad a_{n+1} =\left\{ \begin{array}{lcc}
              a_n & \mbox{si } f(a_n)\cdot f(r_n) <0 \\
-             \\ r_n & \mbox{si } f(a_n)\cdot f(r_n) > 0 \\
+             \\ p_n & \mbox{si } f(a_n)\cdot f(r_n) > 0 \\
              \end{array}
    \right. \end{align}
 \\
 \begin{align}\centering
 \quad b_{n+1} =\left\{ \begin{array}{lcc}
              b_n & \mbox{ si } f(b_n)\cdot f(r_n) < 0 \\
-             \\r_n & \mbox{ si } f(b_n)\cdot f(r_n) > 0 \\
+             \\p_n & \mbox{ si } f(b_n)\cdot f(r_n) > 0 \\
              \end{array}
    \right. }
 }}\end{align}
@@ -109,9 +109,9 @@ f(r_n)=0\pm \mbox{cota de error}
 \subsection{Newton-Raphson}\label{sec:biseccion}
 El método de Newton-Raphson halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
 \begin{align}\centering
-\quad r_{n} =r_{n-1}-\frac{f (r_{n-1})}{f'(r_{n-1})}
+\quad p_{n} =p_{n-1}-\frac{f (p_{n-1})}{f'(p_{n-1})}
 }}\end{align} hasta que \begin{align}
-r_{n}-r_{n-1} < \mbox{cota de error}
+p_{n}-p_{n-1} < \mbox{cota de error}
 \end{align}
 \\\\Para el cálculo de las derivadas, utilizamos la función derivar de la biblioteca Sympy. De esa manera, logramos realizar un programa más versátil que no depende de conocer las derivadas de la función a evaluar.
 \\\\Los resultados obtenidos fueron los siguientes:
@@ -124,18 +124,18 @@ El método de Newton-Raphson modificado le aplica el método de Newton-Raphson a
 \mu =\frac{f (x)}{f'(x)}
 }}\end{align}, obteniendo la derivada con la función derivar (biblioteca Sympy) y halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
 \begin{align}\centering
-\quad r_{n+1}=r_n-\frac{f(p_n).f'(r_n)} {f'(r_n)^2-f(r_n).f''(r_n)}
+\quad p_{n+1}=p_n-\frac{f(p_n).f'(p_n)} {f'(p_n)^2-f(p_n).f''(p_n)}
 }}\end{align} hasta que \begin{align}
-r_{n}-r_{n-1} < \mbox{cota de error}
+p_{n}-p_{n-1} < \mbox{cota de error}
 \end{align}
 \\\\Los resultados obtenidos fueron los siguientes:
 
 \subsection{Secante}\label{sec:biseccion}
 El método de la secante halla la raíz a partir de una semilla inicial, iterando la siguiente sucesión
 \begin{align}\centering
-\quad r_{n} =r_{n-1}-\frac{f (r_{n-1})*(r_{n-1}-r_{n-2})}{f(r_{n-1})-f(r_{n-2})}
+\quad p_{n} =p_{n-1}-\frac{f (p_{n-1})*(p_{n-1}-p_{n-2})}{f(p_{n-1})-f(p_{n-2})}
 }}\end{align} hasta que \begin{align}
-r_{n}-r_{n-1} < \mbox{cota de error}
+p_{n}-p_{n-1} < \mbox{cota de error}
 \end{align}
 \\\\Los resultados obtenidos fueron los siguientes:
 
