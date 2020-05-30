@@ -35,7 +35,7 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
     historia = np.zeros((maxIteraciones, 2))
     if Evaluar(Funcion, a) * Evaluar(Funcion, b) > 0 or tolerancia < 0 or maxIteraciones < 0:
         print(" El intervalo no provee información suficiente para asegurar una raiz")
-        return None
+        return None, np.array([])
     return BiseccionRecursivo(Funcion, a, b, tolerancia, 0, maxIteraciones, historia)
 
 
@@ -62,7 +62,7 @@ def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
     historia = np.zeros((maxIteraciones, 2))
     if tolerancia < 0 or maxIteraciones < 0:
         print(" El intervalo no provee información suficiente para asegurar una raiz")
-        return None
+        return None, np.array([])
     return SecanteRecursivo(Funcion, x1, x0, tolerancia, 0, maxIteraciones, historia)
 
 def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, iteracion, historia):
@@ -88,7 +88,7 @@ def NewtonRaphson(funcion, tolerancia, maxIteraciones, semilla):
     historia = np.zeros((maxIteraciones, 2))
     if tolerancia < 0 or maxIteraciones < 0:
         print(" El intervalo no provee información suficiente para asegurar una raiz")
-        return None
+        return None, np.array([])
     derivada = Derivar(funcion)
     return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, 0, historia)
 
