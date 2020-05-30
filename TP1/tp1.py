@@ -99,7 +99,7 @@ def BusquedaDeRaices(tolerancia):
     BuscarYComparar(Funcion2(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la tercera funcion\n")
-    BuscarYComparar(Funcion3(), tolerancia, 1.3)
+    BuscarYComparar(Funcion3(), tolerancia, 1.0)
 
 
 def main():
