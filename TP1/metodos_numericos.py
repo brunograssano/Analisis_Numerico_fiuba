@@ -18,7 +18,7 @@ def Evaluar(expresion, valor):
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
-    if Evaluar(Funcion, puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion == maxIteraciones:
+    if Evaluar(Funcion, puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion >= maxIteraciones:
         historia = historia[:iteracion + 1]
         return puntoMedio, historia
     elif Evaluar(Funcion, a) * Evaluar(Funcion, puntoMedio) > 0:
@@ -43,7 +43,7 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
     Los valores enviados son validos."""
 def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, historia):
     historia[iteracion] = (iteracion, x1)
-    if abs(x0 - x1) < tolerancia or iteracion == maxIteraciones:
+    if abs(x0 - x1) < tolerancia or iteracion >= maxIteraciones:
         historia = historia[:iteracion + 1]
         return x1, historia
     fx1 = Evaluar(Funcion, x1)
@@ -62,12 +62,12 @@ def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
         return None
     return SecanteRecursivo(Funcion, x1, x0, tolerancia, 0, maxIteraciones, historia)
 
-def NewtonRaphsonRecursivo(funcion,derivada,tolerancia,maxIteraciones,semilla,iteracion,historia):
+def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, iteracion, historia):
     historia[iteracion] = (iteracion, semilla)
     valorFuncion = Evaluar(funcion, semilla)
     valorDerivada = Evaluar(derivada, semilla)
     semilla = semilla - (valorFuncion / valorDerivada)
-    if abs(semilla - historia[iteracion][1]) < tolerancia:
+    if abs(semilla - historia[iteracion][1]) < tolerancia or iteracion >= maxIteraciones:
         historia = historia[:iteracion + 1]
         return semilla, historia
     return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, iteracion + 1, historia)
