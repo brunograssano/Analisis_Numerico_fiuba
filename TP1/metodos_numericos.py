@@ -67,7 +67,7 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semill
     valorFuncion = Evaluar(funcion, semilla)
     valorDerivada = Evaluar(derivada, semilla)
     semilla = semilla - (valorFuncion / valorDerivada)
-    if abs(semilla - historia[iteracion][1]) < tolerancia or iteracion >= maxIteraciones:
+    if abs(semilla - historia[iteracion][1]) < tolerancia or iteracion >= maxIteraciones-1:
         historia = historia[:iteracion + 1]
         return semilla, historia
     return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, semilla, iteracion + 1, historia)
