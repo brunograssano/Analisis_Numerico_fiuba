@@ -6,7 +6,7 @@ from TP1.metodos_numericos import NewtonRaphson
 from TP1.metodos_numericos import NewtonRaphsonModificado
 
 from TP1.calculadoraAlfaLambda import calcularHistoriaDeOrden
-from TP1.calculadoraAlfaLambda import calcularHistoraConstanteAsintotica
+from TP1.calculadoraAlfaLambda import calcularHistoriaConstanteAsintotica
 
 from TP1.Graficador import *
 
@@ -104,9 +104,9 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
     ordenSecante, historiaOrdenSecante = calcularHistoriaDeOrden(historiaSecante)
 
-    constanteBis, historiaConstanteBiseccion = calcularHistoraConstanteAsintotica(historiaBiseccion, ordenBiseccion)
-    constanteNR, historiaConstanteNewton = calcularHistoraConstanteAsintotica(historiaNewton, ordenNewton)
-    constanteNRM, historiaConstanteNewtonModificado = calcularHistoraConstanteAsintotica(historiaNewtonModificado,
+    constanteBis, historiaConstanteBiseccion = calcularHistoriaConstanteAsintotica(historiaBiseccion, ordenBiseccion)
+    constanteNR, historiaConstanteNewton = calcularHistoriaConstanteAsintotica(historiaNewton, ordenNewton)
+    constanteNRM, historiaConstanteNewtonModificado = calcularHistoriaConstanteAsintotica(historiaNewtonModificado,
                                                                                                       ordenNewtonModificado)
     constanteSEC, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historiaSecante, ordenSecante)
 
