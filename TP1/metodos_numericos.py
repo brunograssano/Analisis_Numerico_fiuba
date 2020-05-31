@@ -28,7 +28,8 @@ def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, his
     """
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
-    if Evaluar(Funcion, puntoMedio) == 0 or (b - a) / 2 < tolerancia or iteracion >= maxIteraciones:
+    error = abs(puntoMedio - historia[iteracion-1][1])
+    if Evaluar(Funcion, puntoMedio) == 0 or error < tolerancia or iteracion >= maxIteraciones-1:
         historia = historia[:iteracion + 1]
         return puntoMedio, historia
     elif Evaluar(Funcion, a) * Evaluar(Funcion, puntoMedio) > 0:

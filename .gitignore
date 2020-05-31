@@ -1,3 +1,5 @@
 
 *.ini
 *.pyc
+.spyproject/config/backups/encoding.ini.bak
+*.bak
