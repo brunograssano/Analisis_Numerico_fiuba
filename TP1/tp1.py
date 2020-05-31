@@ -88,9 +88,9 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
 
 def BuscarRaices(Funcion, tolerancia, semillaNewton):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
-    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, 1.0)
+    raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, semillaNewton)
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
-    raizSecante, historiaSecante = Secante(Funcion, 2.0, 0.0, tolerancia, 100)
+    raizSecante, historiaSecante = Secante(Funcion, 1.6, 1.0, tolerancia, 100)
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
 
@@ -134,7 +134,7 @@ def BusquedaDeRaices(tolerancia):
     BuscarYComparar(Funcion2(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la tercera funcion\n")
-    BuscarYComparar(Funcion3(), tolerancia, 1.3)
+    BuscarYComparar(Funcion3(), tolerancia, 1.49)
 
 
 
@@ -149,7 +149,7 @@ def Funcion2ParaProgramaExterno(x):
     return (x ** 5) - 6.6 * (x ** 4) + 5.12 * (x ** 3) + 21.312 * (x ** 2) - 38.016 * x + 17.28
 
 def Funcion3ParaProgramaExterno(x):
-    return (x - 1.5) * exp(-4 * ((x - 1.5) ** 2))
+    return (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
 
 
 
@@ -170,9 +170,10 @@ def ComprobacionConProgramaExterno():
 
     print("\n~~~~Para la funcion 3~~~~")
     raizBiseccion = optimize.bisect(Funcion3ParaProgramaExterno, 0, 2)
-    #raizNewton = optimize.newton(Funcion3ParaProgramaExterno, 1.3)
+    raizNewton = optimize.newton(Funcion3ParaProgramaExterno, 1.3)
     print("Usando biseccion: ", raizBiseccion)
-    print("Usando Newton Raphson: No converge, se puede ver descomentando la linea")
+    print("Usando Newton Raphson: ", raizNewton)
+    #print("Usando Newton Raphson: No converge, se puede ver descomentando la linea")
 
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
