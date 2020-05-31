@@ -59,7 +59,7 @@ def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, his
     Los valores enviados son validos.
     """
     if iteracion >= maxIteraciones - 1:
-        return None, historia
+        return None, np.array([])
     
     historia[iteracion] = (iteracion, x1)
     if abs(x0 - x1) < tolerancia or iteracion >= maxIteraciones:
@@ -93,13 +93,13 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, it
     caso contrario, se devuelve None como raiz y la historia que se tenga.
     """
     if iteracion >= maxIteraciones - 1:
-        return None, historia
+        return None, np.array([])
     
     historia[iteracion] = (iteracion, pN)
     valorFuncion = Evaluar(funcion, pN)
     valorDerivada = Evaluar(derivada, pN)
     if(valorDerivada == 0):
-        return None, historia
+        return None, np.array([])
     pNmas1 = pN - (valorFuncion / valorDerivada)
     if pNmas1 == pN:
         historia = historia[:iteracion + 1]
