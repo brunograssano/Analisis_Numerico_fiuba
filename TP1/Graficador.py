@@ -49,7 +49,6 @@ def graficar(historia, nombre, color):
 # Recibe las 4 historias de los métodos y las grafica.
 def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante):
     plt.figure()
-    
     historiaBiseccion, historiaNR, historiaNRM, historiaSecante = \
         extenderHistorias(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
     
@@ -71,7 +70,8 @@ def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
 def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson, \
                                 historiaOCNewtonRaphsonModif, historiaOCSec):
     plt.figure()
-    
+    axes = plt.gca()
+    axes.set_ylim([0,3])  
     graficar(historiaOCBiseccion, 'Biseccion', 'blue')
     graficar(historiaOCNewtonRaphson, 'Newton-Raphson', 'red')
     graficar(historiaOCNewtonRaphsonModif, 'NR modificado', 'orange')
@@ -92,7 +92,8 @@ def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson, \
 # CA: "Constante asintótica"
 def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, historiaCASEC):
     plt.figure()
-    
+    axes = plt.gca()
+    axes.set_ylim([0,3])
     graficar(historiaCABIS , 'Biseccion', 'blue')
     graficar(historiaCANR, 'Newton-Raphson', 'red')
     graficar(historiaCANRM , 'NR modificado', 'orange')
