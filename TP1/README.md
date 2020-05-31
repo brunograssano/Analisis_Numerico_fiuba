@@ -13,7 +13,8 @@
     ☑
     
 **Ordenes**
-    Send help pls
+    Estaria funcionando para el alfa, quizas revisar lambda? (En las pruebas)
+    En el tp dan cualquiera, por las funciones que nos dieron?
 
 ## Convención a usar
 * *camelCase* para variables
