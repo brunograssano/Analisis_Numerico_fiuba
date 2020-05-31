@@ -108,7 +108,7 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     constanteNR, historiaConstanteNewton = calcularHistoriaConstanteAsintotica(historiaNewton, ordenNewton)
     constanteNRM, historiaConstanteNewtonModificado = calcularHistoriaConstanteAsintotica(historiaNewtonModificado,
                                                                                                       ordenNewtonModificado)
-    constanteSEC, historiaConstanteSecante = calcularHistoraConstanteAsintotica(historiaSecante, ordenSecante)
+    constanteSEC, historiaConstanteSecante = calcularHistoriaConstanteAsintotica(historiaSecante, ordenSecante)
 
     print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
 
@@ -173,10 +173,8 @@ def ComprobacionConProgramaExterno():
     raizNewton = optimize.newton(Funcion3ParaProgramaExterno, 1.3)
     print("Usando biseccion: ", raizBiseccion)
     print("Usando Newton Raphson: ", raizNewton)
-<<<<<<< HEAD
+
     #print("Usando Newton Raphson: No converge, se puede ver descomentando la linea")
-=======
->>>>>>> 1ce8999508f4f9d853c4f3442170d51a18f189f6
 
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
@@ -186,8 +184,8 @@ def ComprobacionConProgramaExterno():
 
 def main():
     Introduccion()
-    #BusquedaDeRaices(1e-5)
-    #BusquedaDeRaices(1e-13)
+    BusquedaDeRaices(1e-5)
+    BusquedaDeRaices(1e-13)
     ComprobacionConProgramaExterno()
 
 
