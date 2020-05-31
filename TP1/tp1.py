@@ -90,7 +90,7 @@ def BuscarRaices(Funcion, tolerancia, semillaNewton):
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
     raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, semillaNewton)
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
-    raizSecante, historiaSecante = Secante(Funcion, 1.6, 1.0, tolerancia, 100)
+    raizSecante, historiaSecante = Secante(Funcion, 1.0, 1.6, tolerancia, 100)
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
 
@@ -131,10 +131,11 @@ def BusquedaDeRaices(tolerancia):
     BuscarYComparar(Funcion1(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la segunda funcion\n")
+
     BuscarYComparar(Funcion2(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la tercera funcion\n")
-    BuscarYComparar(Funcion3(), tolerancia, 1.49)
+    BuscarYComparar(Funcion3(), tolerancia, 1.3)
 
 
 
