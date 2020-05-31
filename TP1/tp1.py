@@ -92,13 +92,13 @@ def BuscarRaices(Funcion, tolerancia, semillaNewton):
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
     raizSecante, historiaSecante = Secante(Funcion, 2.0, 0.0, tolerancia, 100)
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
-    graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
+    graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
 
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 
 
-def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante):
+def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion):
     ordenBiseccion, historiaOrdenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
     ordenNewton, historiaOrdenNewton = calcularHistoriaDeOrden(historiaNewton)
     ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
@@ -113,16 +113,16 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
 
     graficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton, \
-                                historiaOrdenNewtonModificado, historiaOrdenSecante)
+                                historiaOrdenNewtonModificado, historiaOrdenSecante, Funcion)
 
     graficarConstantesAsintoticas(historiaConstanteBiseccion, historiaConstanteNewton, \
-                                historiaConstanteNewtonModificado, historiaConstanteSecante)
+                                historiaConstanteNewtonModificado, historiaConstanteSecante, Funcion)
 
 
 
 def BuscarYComparar(Funcion, tolerancia,semillaNewton):
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia, semillaNewton)
-    ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante)
+    ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
 
 
 
