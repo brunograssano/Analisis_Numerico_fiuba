@@ -1,6 +1,5 @@
-import numpy as np
 from sympy import *
-
+from scipy import optimize
 from TP1.metodos_numericos import Biseccion
 from TP1.metodos_numericos import Secante
 from TP1.metodos_numericos import NewtonRaphson
@@ -127,13 +126,21 @@ def BusquedaDeRaices(tolerancia):
     BuscarYComparar(Funcion2(), tolerancia, 1.0)
 
     print("\nBuscamos y comparamos las constantes para la tercera funcion\n")
-    BuscarYComparar(Funcion3(), tolerancia, 1.0)
+    BuscarYComparar(Funcion3(), tolerancia, 1.3)
 
 
 def main():
     Introduccion()
     BusquedaDeRaices(1e-5)
     BusquedaDeRaices(1e-13)
+    print("PUNTO C")
+    raizBiseccion = optimize.bisect(Funcion1(),0,2)
+    raizNewton = optimize.newton(Funcion1(),1)
+
+    print(raizBiseccion)
+    print(raizNewton)
+
+
 
 
 if __name__ == "__main__":
