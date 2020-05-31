@@ -173,7 +173,6 @@ def ComprobacionConProgramaExterno():
     raizNewton = optimize.newton(Funcion3ParaProgramaExterno, 1.3)
     print("Usando biseccion: ", raizBiseccion)
     print("Usando Newton Raphson: ", raizNewton)
-
     #print("Usando Newton Raphson: No converge, se puede ver descomentando la linea")
 
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
