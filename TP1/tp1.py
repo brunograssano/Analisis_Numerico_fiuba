@@ -149,7 +149,7 @@ def Funcion2ParaProgramaExterno(x):
     return (x ** 5) - 6.6 * (x ** 4) + 5.12 * (x ** 3) + 21.312 * (x ** 2) - 38.016 * x + 17.28
 
 def Funcion3ParaProgramaExterno(x):
-    return (x - 1.5) * exp(-4 * ((x - 1.5) ** 2))
+    return (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
 
 
 
@@ -170,9 +170,9 @@ def ComprobacionConProgramaExterno():
 
     print("\n~~~~Para la funcion 3~~~~")
     raizBiseccion = optimize.bisect(Funcion3ParaProgramaExterno, 0, 2)
-    #raizNewton = optimize.newton(Funcion3ParaProgramaExterno, 1.3)
+    raizNewton = optimize.newton(Funcion3ParaProgramaExterno, 1.3)
     print("Usando biseccion: ", raizBiseccion)
-    print("Usando Newton Raphson: No converge, se puede ver descomentando la linea")
+    print("Usando Newton Raphson: ", raizNewton)
 
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
@@ -182,8 +182,8 @@ def ComprobacionConProgramaExterno():
 
 def main():
     Introduccion()
-    BusquedaDeRaices(1e-5)
-    BusquedaDeRaices(1e-13)
+    #BusquedaDeRaices(1e-5)
+    #BusquedaDeRaices(1e-13)
     ComprobacionConProgramaExterno()
 
 
