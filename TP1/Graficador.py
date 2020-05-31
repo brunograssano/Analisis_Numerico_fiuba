@@ -9,7 +9,8 @@ def maximoLen(historiaBIS, historiaNR, historiaNRM, historiaSEC):
     return max(bis, nr, nrm, sec)
 
 def extenderHistoria(historia, tope):
-    
+    if(historia.size == 0):
+        return historia
     long = len(historia)
     
     historiaExtendida = np.zeros((tope,2))
@@ -47,7 +48,7 @@ def graficar(historia, nombre, color):
 
 
 # Recibe las 4 historias de los métodos y las grafica.
-def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante):
+def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante, funcion):
     plt.figure()
     historiaBiseccion, historiaNR, historiaNRM, historiaSecante = \
         extenderHistorias(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
@@ -60,7 +61,7 @@ def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
     plt.xlabel('Iteración')
     plt.ylabel('Raiz')
     plt.legend(loc='best')
-    plt.title('Raiz estimada')
+    plt.title(funcion)
     plt.grid(True)
     plt.show()
 
@@ -68,7 +69,7 @@ def graficarMetodos(historiaBiseccion, historiaNR, historiaNRM, historiaSecante)
 # Recibe la historia de los órdenes de convergencia respecto a cada paso.
 # OC: "Orden de convergencia"
 def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson, \
-                                historiaOCNewtonRaphsonModif, historiaOCSec):
+                                historiaOCNewtonRaphsonModif, historiaOCSec, funcion):
     plt.figure()
     axes = plt.gca()
     axes.set_ylim([0,3])  
@@ -81,7 +82,7 @@ def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson, \
     plt.xlabel('Iteración')
     plt.ylabel('Alfa')
     plt.legend(loc='best')
-    plt.title('Orden de convergencia estimado')
+    plt.title(funcion)
     plt.grid(True)
     plt.show()    
 
@@ -90,7 +91,7 @@ def graficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson, \
 # Cuando tengamos los demás métodos deberíamos probarlo.
 # Recibe como parámetros las historias de las constantes asintóticas respecto a cada paso.
 # CA: "Constante asintótica"
-def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, historiaCASEC):
+def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, historiaCASEC, funcion):
     plt.figure()
     axes = plt.gca()
     axes.set_ylim([0,3])
@@ -103,6 +104,6 @@ def graficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, hi
     plt.xlabel('Iteración')
     plt.ylabel('Lambda')
     plt.legend(loc='best')
-    plt.title('Constante asintótica estimada')
+    plt.title(funcion)
     plt.grid(True)
     plt.show()
