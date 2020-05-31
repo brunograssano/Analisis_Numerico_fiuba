@@ -174,7 +174,33 @@ def pruebaBiseccion2_DadaLaFuncion1_LaRaizEsLaCorrectaParaLaTolerancia():
 def pruebasBiseccion():
     pruebaBiseccion1_SiElMaximoDeIteracionesEsMenorQueLasIteracionesNecesariasParaCalcularLaRaizNoDebeHaberUnOutOfBounds()
     pruebaBiseccion2_DadaLaFuncion1_LaRaizEsLaCorrectaParaLaTolerancia()
+   
     
+    
+def pruebaNewtonRaphson1_DadaLaFuncion2_SiElMáximoDeIteracionesEsMenorQueLasIteracionesNecesariasParaCalcularLaRaizNoDebeHaberUnOutOfBounds():
+    raizNR, historiaNR = NewtonRaphson(funcionPrueba2(), 1e-13, 3, 1)
+    #assert(len(historiaNR) == 3)
 
-
+def pruebaNewtonRaphson2_DadaLaFuncion2_LaRaizEsLaCorrectaParaLaTolerancia():
+    raizNR, historiaNR = NewtonRaphson(funcionPrueba2(), 1e-4, 5, 1)
+    #(0, 1)
+    #(1, 4/3)
+    #(2, 1.263888889)
+    #(3, 1.259933493)
+    #(4, 1.25992105)
+    assert(historiaNR[0][1] == 1)
+    assert(historiaNR[1][1] == 4/3)
+    assert(historiaNR[2][1] == 91/72)
+    assert(historiaNR[3][1] == 91/72 - (((91/72)**3) - 2)/(3 * (91/72)**2))
+    assert(historiaNR[3][1] - historiaNR[4][1] < 1e-4)
+    
+    
+def pruebasNewtonRaphson():
+    pruebaNewtonRaphson1_DadaLaFuncion2_SiElMáximoDeIteracionesEsMenorQueLasIteracionesNecesariasParaCalcularLaRaizNoDebeHaberUnOutOfBounds()
+    pruebaNewtonRaphson2_DadaLaFuncion2_LaRaizEsLaCorrectaParaLaTolerancia()
+    
+    
+    
 pruebasBiseccion()
+
+pruebasNewtonRaphson()
