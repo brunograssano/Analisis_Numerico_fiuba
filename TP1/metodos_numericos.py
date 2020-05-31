@@ -62,7 +62,7 @@ def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, his
         return None, np.array([])
     
     historia[iteracion] = (iteracion, x1)
-    if abs(x0 - x1) < tolerancia or iteracion >= maxIteraciones:
+    if abs(x0 - x1) < tolerancia or iteracion >= maxIteraciones-1:
         historia = historia[:iteracion + 1]
         return x1, historia
     fx1 = Evaluar(Funcion, x1)
