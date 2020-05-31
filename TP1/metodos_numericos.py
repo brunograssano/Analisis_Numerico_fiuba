@@ -108,7 +108,8 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, it
         historia = historia[:iteracion + 1]
         return pN, historia
     if abs(pNmas1 - historia[iteracion][1]) < tolerancia:
-        historia = historia[:iteracion + 1]
+        historia[iteracion + 1] = (iteracion + 1, pNmas1) 
+        historia = historia[:iteracion + 2]
         return pNmas1, historia
     
     return NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pNmas1, iteracion + 1, historia)
