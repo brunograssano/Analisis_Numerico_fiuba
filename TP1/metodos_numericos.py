@@ -24,7 +24,7 @@ def Evaluar(expresion, valor):
 def BiseccionRecursivo(Funcion, a, b, tolerancia, iteracion, maxIteraciones, historia):
     """
     Implementacion del algoritmo de biseccion de forma recursiva.
-    Los valores enviados son validos.
+    Los valores recibidos son validos.
     """
     puntoMedio = a + (b - a) / 2
     historia[iteracion] = (iteracion, puntoMedio)
@@ -43,7 +43,7 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
     Funcion que da inicio al algoritmo de biseccion implementado de forma recursiva.
     El intervalo enviado debe de ser valido.
     La tolerancia y numero de iteraciones no pueden ser negativos.
-    Si se cumplen las condiciones se enviara el punto aproximado a la raiz y la historia de iteraciones.
+    Si se cumplen las condiciones se enviara el punto aproximado de la raiz y la historia de iteraciones.
     """
     historia = np.zeros((maxIteraciones, 2))
     if Evaluar(Funcion, a) * Evaluar(Funcion, b) > 0 or tolerancia < 0 or maxIteraciones < 0:
@@ -56,7 +56,7 @@ def Biseccion(Funcion, a, b, tolerancia, maxIteraciones):
 def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, historia):
     """
     Implementacion del algoritmo del metodo de la secante de forma recursiva.
-    Los valores enviados son validos.
+    Los valores recibidos son validos.
     """
     if iteracion >= maxIteraciones - 1:
         return None, np.array([])
@@ -78,7 +78,7 @@ def Secante(Funcion, x1, x0, tolerancia, maxIteraciones):
     """
     Funcion que da inicio al algoritmo del metodo de la secante implementado de forma recursiva.
     La tolerancia y numero de iteraciones no pueden ser negativos.
-    Si se cumplen las condiciones se enviara el punto aproximado a la raiz y la historia de iteraciones.
+    Si se cumplen las condiciones se enviara el punto aproximado de la raiz y la historia de iteraciones.
     """
     historia = np.zeros((maxIteraciones, 2))
     if tolerancia < 0 or maxIteraciones < 0:
@@ -100,7 +100,7 @@ def NewtonRaphsonRecursivo(funcion, derivada, tolerancia, maxIteraciones, pN, it
     historia[iteracion] = (iteracion, pN)
     valorFuncion = Evaluar(funcion, pN)
     valorDerivada = Evaluar(derivada, pN)
-    if(valorDerivada == 0):
+    if valorDerivada == 0:
         return None, np.array([])
     pNmas1 = pN - (valorFuncion / valorDerivada)
     if pNmas1 == pN:
