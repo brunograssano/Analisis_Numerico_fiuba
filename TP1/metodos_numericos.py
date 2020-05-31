@@ -68,7 +68,7 @@ def SecanteRecursivo(Funcion, x1, x0, tolerancia, iteracion, maxIteraciones, his
     fx1 = Evaluar(Funcion, x1)
     fx0 = Evaluar(Funcion, x0)
     if(fx1 == fx0):
-        return None, np.array([])
+        return x1, historia
     x2 = x1 - fx1 * (x1 - x0) / (fx1 - fx0)
     return SecanteRecursivo(Funcion, x2, x1, tolerancia, iteracion + 1, maxIteraciones, historia)
 
