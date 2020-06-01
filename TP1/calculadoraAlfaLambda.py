@@ -26,7 +26,7 @@ def ordenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
         return None
     return numerador/denominador
 
-def calcularHistoriaDeOrden(historia):
+def calcularHistoriaDeOrden2(historia):
     tope = len(historia)
     if tope < 5:
         return 0, np.array([])
@@ -41,6 +41,22 @@ def calcularHistoriaDeOrden(historia):
             j = j + 1
     historiaDeOrden = historiaDeOrden[:j]
     return historiaDeOrden[j-1][1], historiaDeOrden
+
+def calcularHistoriaDeOrden(historiaRaices):
+    nIteraciones = len(historiaRaices) - 1
+    if(len(historiaRaices) < 5):
+        return 0, np.array([])
+    alfa = np.zeros((nIteraciones-1,2))
+    
+    for n in range(3-1,nIteraciones-1):
+        e_n_mas_1 = historiaRaices[n+1][1]-historiaRaices[n][1]
+        e_n = historiaRaices[n][1] - historiaRaices[n-1][1]
+        e_n_menos_1 = historiaRaices[n-1][1]-historiaRaices[n-2][1]
+        
+        alfa[n] = n,np.log10(np.abs(e_n_mas_1/e_n))/ \
+        np.log10(np.abs(e_n/e_n_menos_1))
+    
+    return alfa[nIteraciones-2][1],alfa
 
 
 def constanteAsintotica(xN, xNmas1, alfa, raiz):
