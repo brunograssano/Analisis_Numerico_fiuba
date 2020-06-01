@@ -3,7 +3,10 @@ import numpy as np
 
 
 def ordenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
-
+    """
+    Calcula el orden de convergencia para determinado punto aplicando la division que se realiza en la definicion.
+    Si algun denominador resultase nulo, no se devolvera una constante, se devuelve None.
+    """
     a = xNmas1 - xN
     if a == 0:
         return None
@@ -27,7 +30,11 @@ def ordenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
     return numerador/denominador
 
 def calcularHistoriaDeOrden2(historia):
-    tope = len(historia)
+    """
+    Calcula la constante alfa, necesita de la historia de la busqueda de la raiz.
+    Devuelve la historia del alfa y el alfa final conseguido
+    """
+   tope = len(historia)
     if tope < 5:
         return 0, np.array([])
     historiaDeOrden = np.zeros((tope-4, 2))
@@ -67,6 +74,10 @@ def constanteAsintotica(xN, xNmas1, alfa, raiz):
     return numerador/denominador
 
 def calcularHistoriaConstanteAsintotica(historia, alfa):
+    """
+    Calcula la constante lambda, necesita de la historia de la busqueda de la raiz y del alfa obtenido previamente
+    Devuelve la historia del lambda y el lambda final conseguido
+    """
     if alfa <= 0:
         return 0, np.array([])
     tope = len(historia)
