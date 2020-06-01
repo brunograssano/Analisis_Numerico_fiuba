@@ -429,8 +429,8 @@ En la iteración 6 se llega a la cota $1*10^-5$
 
 Usando la biblioteca `sympy`, las raíces halladas fueron:
 \begin{itemize}
-    \item[$*$]Usando bisección:  1.4142135623715149+-
-    \item[$*$]Usando Newton Raphson:  1.414213562373095+-
+    \item[$*$]Usando bisección:  1.4142135623715149+-0.000000000000001
+    \item[$*$]Usando Newton Raphson:  1.414213562373095+-0.000000000000001
 \end{itemize}
 
 Los resultados obtenidos con las funciones programadas son congruentes con estos últimos, viendo que la convergencia más rápida se encontró con los métodos de Newton-Raphson, luego el método de la secante y por último el método de bisección.
@@ -441,8 +441,8 @@ Los resultados obtenidos con las funciones programadas son congruentes con estos
 
 Usando la biblioteca sympy, las raíces halladas fueron:
 \begin{itemize}
-    \item[$*$]Usando bisección:   1.2000045776367188+-
-    \item[$*$]Usando Newton Raphson:  1.2000066214794778+-
+    \item[$*$]Usando bisección:   1.2000045776367188+-0.000000000000001
+    \item[$*$]Usando Newton Raphson:  1.2000066214794778+-0.000000000000001
 \end{itemize}
 
 Los resultados obtenidos con las funciones programadas son congruentes con estos últimos para la tolerancia $1*10^-5$, no así para la cota de error $1*10^-13$, esto puede deberse a como esta programado internamente el método de la biblioteca. Para esta función, claramente el método de Newton-Raphson modificado fue el más rápido. 
