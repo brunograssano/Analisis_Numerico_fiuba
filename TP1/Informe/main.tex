@@ -435,8 +435,23 @@ Usando la biblioteca `sympy`, las raíces halladas fueron:
 
 Los resultados obtenidos con las funciones programadas son congruentes con estos últimos, viendo que la convergencia más rápida se encontró con los métodos de Newton-Raphson, luego el método de la secante y por último el método de bisección.
 
-%faltan los gráficos y analizar la parte de P y lambda
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{raiz f1.png}
+\caption{\label{fig:class01}Valor de la raíz según iteración.}
+\end{figure}
+\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{lambda f1.png}
+\caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{alfa f1.png}
+\caption{\label{fig:class01}Valor de P según iteración.}
+\end{figure}
+\\Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
 \subsubsection{Segunda función}\label{sec:CR2}
 
 Usando la biblioteca sympy, las raíces halladas fueron:
@@ -447,9 +462,25 @@ Usando la biblioteca sympy, las raíces halladas fueron:
 
 Los resultados obtenidos con las funciones programadas son congruentes con estos últimos para la tolerancia $1*10^-5$, no así para la cota de error $1*10^-13$, esto puede deberse a como esta programado internamente el método de la biblioteca. Para esta función, claramente el método de Newton-Raphson modificado fue el más rápido. 
 
-Analizando la diferencia en iteraciones para las dos cotas de error, se ve que prácticamente necesitaron la misma cantidad.
-
-%faltan los gráficos y analizar la parte de P y lambda
+\\Analizando la diferencia en iteraciones para las dos cotas de error, se ve que prácticamente necesitaron la misma cantidad.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{raiz f2.png}
+\caption{\label{fig:class01}Valor de la raíz según iteración.}
+\end{figure}
+\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{lambda f2.png}
+\caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{alfa f2.png}
+\caption{\label{fig:class01}Valor de P según iteración.}
+\end{figure}
+\\%Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
+%falta analizar la parte de lambda, chequear si lo que puse de P está correcto
 
 \subsubsection{Tercera función}\label{sec:CR3}
 
@@ -461,8 +492,24 @@ Usando la biblioteca `sympy`, las raíces halladas fueron:
 
 Para esta función, la convergencia más rápida fue utilizando el método de bisección, aunque los otros métodos tuvieron también una rápida convergencia. 
 
-%faltan los gráficos y analizar la parte de P y lambda
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{raiz f3.png}
+\caption{\label{fig:class01}Valor de la raíz según iteración.}
+\end{figure}
+\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{lambda f3.png}
+\caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{alfa f3.png}
+\caption{\label{fig:class01}Valor de P según iteración.}
+\end{figure}
+\\%Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
+%falta analizar la parte de lambda, chequear si lo que puse de P está correcto
 \section{Conclusiones}\label{sec:conclusiones}
 
 Las conclusiones que hallamos fueron las siguientes:
