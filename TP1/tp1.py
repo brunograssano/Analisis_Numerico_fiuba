@@ -49,6 +49,10 @@ def Introduccion():
 #%%% Punto B y D - Buscar raices y graficar ordenes
 
 def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia):
+    """
+    Mostrara por pantalla las raices obtenidas dependiendo de los dos tipos distintos de tolerancia.
+    Si no se obtuvo raiz durante su busqueda, se mostrara un mensaje indicando el metodo que fallo
+    """
     if (tolerancia==1e-5):
         if raizBiseccion is not None:
             print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
@@ -87,6 +91,10 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
 
 
 def BuscarRaices(Funcion, tolerancia, semillaNewton):
+    """
+    Recibe la funcion en su forma de simbolos y una tolerancia valida.
+    Necesita tambien de una semilla cercana a la raiz para el metodo de Newton Raphson.
+    """
     raizBiseccion, historiaBiseccion = Biseccion(Funcion, 0.0, 2.0, tolerancia, 100)
     raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, semillaNewton)
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
@@ -99,6 +107,10 @@ def BuscarRaices(Funcion, tolerancia, semillaNewton):
 
 
 def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion):
+    """
+    Calculara los ordenes de convergencia y las constantes asintoticas para la funcion indicada en su forma de simbolos.
+    Necesita tambien de las historias de la busqueda con cada metodo.
+    """
     ordenBiseccion, historiaOrdenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
     ordenNewton, historiaOrdenNewton = calcularHistoriaDeOrden(historiaNewton)
     ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
