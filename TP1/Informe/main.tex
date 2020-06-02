@@ -208,7 +208,7 @@ $\quad p_{n} =p_{n-1}-\frac{f (p_{n-1})}{f'(p_{n-1})}$ hasta que
 $p_{n}-p_{n-1} < \mbox{$\epsilon$}$
 
 
-Para el cálculo de las derivadas, utilizamos el método 'Derivative' de la biblioteca `Sympy`. De esa manera, logramos realizar un programa más versátil que no depende de conocer las derivadas de la función a evaluar.
+Para el cálculo de las derivadas, utilizamos el método 'Derivative' de la biblioteca `Sympy`. De esa manera, logramos realizar un programa más escalable, debido a que no es necesario conocer las derivadas de la función a evaluar.
 
 Los resultados obtenidos fueron los siguientes:
 
@@ -452,7 +452,7 @@ Los resultados obtenidos con las funciones programadas son congruentes con estos
 \includegraphics[width=0.8\textwidth]{alfa f1.png}
 \caption{\label{fig:class01}Valor de P según iteración.}
 \end{figure}
-\\Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
+\\Podemos ver como los valores de P están de acuerdo con lo que se esperaba en base a la teoría, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
 \subsubsection{Segunda función}\label{sec:CR2}
 
 Usando la biblioteca 'SciPy', las raíces halladas fueron:
@@ -461,9 +461,9 @@ Usando la biblioteca 'SciPy', las raíces halladas fueron:
     \item[$*$]Usando Newton Raphson:  1.2000066214794778+-0.000000000000001
 \end{itemize}
 
-Los resultados obtenidos con las funciones programadas son congruentes con estos últimos para la tolerancia $1*10^-5$, no así para la cota de error $1*10^-13$, esto puede deberse a como esta programado internamente el método de la biblioteca. Para esta función, claramente el método de Newton-Raphson modificado fue el más rápido. 
+Los resultados obtenidos con las funciones programadas son congruentes con estos últimos para la tolerancia $1*10^-5$, no así para la cota de error $1*10^-13$, se estima que esto se debe a como esta programado el método de la biblioteca. Para esta función, claramente el método de Newton-Raphson modificado fue el que mostró una convergencia más acelerada. 
 
-\\Analizando la diferencia en iteraciones para las dos cotas de error, se ve que prácticamente necesitaron la misma cantidad.
+\\Analizando la diferencia en iteraciones para las dos cotas de error, se observa que prácticamente necesitaron la misma cantidad.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{raiz f2.png}
