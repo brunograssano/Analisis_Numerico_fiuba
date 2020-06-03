@@ -539,7 +539,9 @@ Usando la biblioteca `SciPy`, las raíces halladas fueron:
     \item[$*$]Usando Newton Raphson:  1.500000000000000+-0.000000000000001
 \end{itemize}
 
-Para esta función, la convergencia más rápida fue utilizando el método de bisección, aunque los otros métodos tuvieron también una rápida convergencia. 
+Los resultados obtenidos con las funciones programadas son congruentes con estos últimos, viendo que la convergencia más rápida se encontró con los métodos de Newton-Raphson, luego el método de la secante y por último el método de bisección. 
+\\Algo que notamos en esta función para el método de bisección es que llega al valor correcto de la raíz en la segunda iteración, pero como el criterio de corte es la diferencia entre iteraciones, no sería correcto el corte en esa segunda iteración.
+
 
 \begin{figure}[H]
     \centering
@@ -564,7 +566,7 @@ Para esta función, la convergencia más rápida fue utilizando el método de bi
 
 \section{Conclusiones}\label{sec:conclusiones}
 
-A modo de conclusión de este trabajo práctico, se destaca que para las dos primeras funciones la convergencia al resultado con la tolerancia dada con menos iteraciones fue utilizando el método de Newton-Raphson modificado, de acuerdo a la teoría. Para la tercera función, la convergencia más rápida fue con el método de bisección, esto se debió al intervalo dado, que era ideal para hallar dicha raíz.
+A modo de conclusión de este trabajo práctico, se destaca que la convergencia al resultado con la tolerancia dada con menos iteraciones fue utilizando el método de Newton-Raphson modificado, de acuerdo a la teoría. 
 
  Además, se encontraron dificultades para hallar el orden de convergencia P y la constante asintótica $\lambda$. Estimamos que una posible fuente de este inconveniente es el error de redondeo proveniente del uso de notación de punto flotante. Además, al trabajar con números muy cercanos entre si, el error tiende a aumentar al dividir por un número muy pequeño o multiplicando por uno muy grande, siendo estos cálculos necesarios para encontrar los valores que necesitamos. Otro posible origen, es el uso de funciones que no están del todo anidadas, que resultan en un aumento de las operaciones a realizar.
  
