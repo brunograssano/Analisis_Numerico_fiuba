@@ -28,7 +28,7 @@ def OrdenDeConvergencia(xNmenos2, xNmenos1, xN, xNmas1):
         return None
     return numerador / denominador
 
-
+#funcion original que habiamos hecho para calcular la constante alfa
 def CalcularHistoriaDeOrden2(historia):
     """
     Calcula la constante alfa, necesita de la historia de la busqueda de la raiz.
@@ -51,6 +51,10 @@ def CalcularHistoriaDeOrden2(historia):
 
 
 def CalcularHistoriaDeOrden(historiaRaices):
+    """
+    Calcula la constante alfa, necesita de la historia de la busqueda de la raiz.
+    Devuelve la historia del alfa y el alfa final conseguido
+    """
     nIteraciones = len(historiaRaices) - 1
     if len(historiaRaices) < 5:
         return 0, np.array([])
@@ -61,8 +65,11 @@ def CalcularHistoriaDeOrden(historiaRaices):
         e_n = historiaRaices[n][1] - historiaRaices[n - 1][1]
         e_n_menos_1 = historiaRaices[n - 1][1] - historiaRaices[n - 2][1]
 
-        alfa[n] = n, np.log10(np.abs(e_n_mas_1 / e_n)) / \
-                  np.log10(np.abs(e_n / e_n_menos_1))
+        # Tira un warning de division por 0 debido a que varios numeros estan cercanos al mismo, se agrego para evitarlo,
+        # si se saltean estas divisiones los graficos quedan peor.
+        with np.errstate(divide='ignore'):
+            alfa[n] = n, np.log10(np.abs(e_n_mas_1 / e_n)) / np.log10(np.abs(e_n / e_n_menos_1))
+
 
     return alfa[nIteraciones - 2][1], alfa
 
