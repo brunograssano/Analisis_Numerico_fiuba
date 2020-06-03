@@ -1,16 +1,22 @@
 from sympy import *
 from scipy import optimize
+
 from TP1.metodos_numericos import Biseccion
 from TP1.metodos_numericos import Secante
 from TP1.metodos_numericos import NewtonRaphson
 from TP1.metodos_numericos import NewtonRaphsonModificado
 
-from TP1.calculadoraAlfaLambda import calcularHistoriaDeOrden
-from TP1.calculadoraAlfaLambda import calcularHistoriaConstanteAsintotica
+from TP1.calculadoraAlfaLambda import CalcularHistoriaDeOrden
+from TP1.calculadoraAlfaLambda import CalcularHistoriaConstanteAsintotica
 
 from TP1.Graficador import *
 
-#%% Funciones varias
+
+# Convencion utilizada a lo largo del trabajo
+# camelCase para variables
+# CamelCase para funciones
+
+# %% Funciones varias
 
 
 def Funcion1():
@@ -18,10 +24,12 @@ def Funcion1():
     funcion = (x ** 2) - 2
     return funcion
 
+
 def Funcion2():
     x = symbols('x')
     funcion = (x ** 5) - 6.6 * (x ** 4) + 5.12 * (x ** 3) + 21.312 * (x ** 2) - 38.016 * x + 17.28
     return funcion
+
 
 def Funcion3():
     x = symbols('x')
@@ -45,15 +53,14 @@ def Introduccion():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n")
 
 
-
-#%%% Punto B y D - Buscar raices y graficar ordenes
+# %%% Punto B y D - Buscar raices y graficar ordenes
 
 def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia):
     """
     Mostrara por pantalla las raices obtenidas dependiendo de los dos tipos distintos de tolerancia.
     Si no se obtuvo raiz durante su busqueda, se mostrara un mensaje indicando el metodo que fallo
     """
-    if (tolerancia==1e-5):
+    if tolerancia == 1e-5:
         if raizBiseccion is not None:
             print("* Raiz Biseccion = {0} +- {1}".format('{0:.5f}'.format(raizBiseccion), '{0:.5f}'.format(tolerancia)))
         else:
@@ -63,16 +70,18 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
         else:
             print("El Metodo de Newton Raphson no converge")
         if raizNewtonModificado is not None:
-            print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado), '{0:.5f}'.format(tolerancia)))
+            print("* Raiz Newton modificado = {0} +- {1}".format('{0:.5f}'.format(raizNewtonModificado),
+                                                                 '{0:.5f}'.format(tolerancia)))
         else:
-             print("El Metodo de Newton Raphson modificado no converge")
+            print("El Metodo de Newton Raphson modificado no converge")
         if raizSecante is not None:
             print("* Raiz Secante = {0} +- {1}".format('{0:.5f}'.format(raizSecante), '{0:.5f}'.format(tolerancia)))
         else:
             print("El Metodo de la secante no converge")
-    if (tolerancia==1e-13):
+    if tolerancia == 1e-13:
         if raizBiseccion is not None:
-            print("* Raiz Biseccion = {0} +- {1}".format('{0:.13f}'.format(raizBiseccion), '{0:.13f}'.format(tolerancia)))
+            print(
+                "* Raiz Biseccion = {0} +- {1}".format('{0:.13f}'.format(raizBiseccion), '{0:.13f}'.format(tolerancia)))
         else:
             print("El Metodo de Biseccion no converge")
         if raizNewton is not None:
@@ -80,14 +89,14 @@ def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, 
         else:
             print("El Metodo de Newton Raphson no converge")
         if raizNewtonModificado is not None:
-            print("* Raiz Newton modificado = {0} +- {1}".format('{0:.13f}'.format(raizNewtonModificado), '{0:.13f}'.format(tolerancia)))
+            print("* Raiz Newton modificado = {0} +- {1}".format('{0:.13f}'.format(raizNewtonModificado),
+                                                                 '{0:.13f}'.format(tolerancia)))
         else:
-             print("El Metodo de Newton Raphson modificado no converge")
+            print("El Metodo de Newton Raphson modificado no converge")
         if raizSecante is not None:
             print("* Raiz Secante = {0} +- {1}".format('{0:.13f}'.format(raizSecante), '{0:.13f}'.format(tolerancia)))
         else:
             print("El Metodo de la secante no converge")
-
 
 
 def BuscarRaices(Funcion, tolerancia, semillaNewton):
@@ -99,11 +108,11 @@ def BuscarRaices(Funcion, tolerancia, semillaNewton):
     raizNewton, historiaNewton = NewtonRaphson(Funcion, tolerancia, 100, semillaNewton)
     raizNewtonModificado, historiaNewtonModificado = NewtonRaphsonModificado(Funcion, tolerancia, 100, semillaNewton)
     raizSecante, historiaSecante = Secante(Funcion, 1.0, 1.6, tolerancia, 100)
+
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
-    graficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
+    GraficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
 
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
-
 
 
 def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion):
@@ -111,31 +120,28 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     Calculara los ordenes de convergencia y las constantes asintoticas para la funcion indicada en su forma de simbolos.
     Necesita tambien de las historias de la busqueda con cada metodo.
     """
-    ordenBiseccion, historiaOrdenBiseccion = calcularHistoriaDeOrden(historiaBiseccion)
-    ordenNewton, historiaOrdenNewton = calcularHistoriaDeOrden(historiaNewton)
-    ordenNewtonModificado, historiaOrdenNewtonModificado = calcularHistoriaDeOrden(historiaNewtonModificado)
-    ordenSecante, historiaOrdenSecante = calcularHistoriaDeOrden(historiaSecante)
+    ordenBiseccion, historiaOrdenBiseccion = CalcularHistoriaDeOrden(historiaBiseccion)
+    ordenNewton, historiaOrdenNewton = CalcularHistoriaDeOrden(historiaNewton)
+    ordenNewtonModificado, historiaOrdenNewtonModificado = CalcularHistoriaDeOrden(historiaNewtonModificado)
+    ordenSecante, historiaOrdenSecante = CalcularHistoriaDeOrden(historiaSecante)
 
-    constanteBis, historiaConstanteBiseccion = calcularHistoriaConstanteAsintotica(historiaBiseccion, ordenBiseccion)
-    constanteNR, historiaConstanteNewton = calcularHistoriaConstanteAsintotica(historiaNewton, ordenNewton)
-    constanteNRM, historiaConstanteNewtonModificado = calcularHistoriaConstanteAsintotica(historiaNewtonModificado,
-                                                                                                      ordenNewtonModificado)
-    constanteSEC, historiaConstanteSecante = calcularHistoriaConstanteAsintotica(historiaSecante, ordenSecante)
+    constanteBis, historiaConstanteBiseccion = CalcularHistoriaConstanteAsintotica(historiaBiseccion, ordenBiseccion)
+    constanteNR, historiaConstanteNewton = CalcularHistoriaConstanteAsintotica(historiaNewton, ordenNewton)
+    constanteNRM, historiaConstanteNewtonModificado = CalcularHistoriaConstanteAsintotica(historiaNewtonModificado,
+                                                                                          ordenNewtonModificado)
+    constanteSEC, historiaConstanteSecante = CalcularHistoriaConstanteAsintotica(historiaSecante, ordenSecante)
 
-    print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
+    print(
+        "\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
 
-    graficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton, \
-                                historiaOrdenNewtonModificado, historiaOrdenSecante, Funcion)
+    GraficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton, historiaOrdenNewtonModificado, historiaOrdenSecante, Funcion)
 
-    graficarConstantesAsintoticas(historiaConstanteBiseccion, historiaConstanteNewton, \
-                                historiaConstanteNewtonModificado, historiaConstanteSecante, Funcion)
-
+    GraficarConstantesAsintoticas(historiaConstanteBiseccion, historiaConstanteNewton, historiaConstanteNewtonModificado, historiaConstanteSecante, Funcion)
 
 
-def BuscarYComparar(Funcion, tolerancia,semillaNewton):
+def BuscarYComparar(Funcion, tolerancia, semillaNewton):
     historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante = BuscarRaices(Funcion, tolerancia, semillaNewton)
     ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
-
 
 
 def BusquedaDeRaices(tolerancia):
@@ -150,9 +156,7 @@ def BusquedaDeRaices(tolerancia):
     BuscarYComparar(Funcion3(), tolerancia, 1.3)
 
 
-
-
-#%%% Punto C - Comprobacion con programa externo
+# %%% Punto C - Comprobacion con programa externo
 
 def Funcion1ParaProgramaExterno(x):
     return x ** 2 - 2
@@ -161,14 +165,15 @@ def Funcion1ParaProgramaExterno(x):
 def Funcion2ParaProgramaExterno(x):
     return (x ** 5) - 6.6 * (x ** 4) + 5.12 * (x ** 3) + 21.312 * (x ** 2) - 38.016 * x + 17.28
 
+
 def Funcion3ParaProgramaExterno(x):
     return (x - 1.5) * np.exp(-4 * ((x - 1.5) ** 2))
-
 
 
 def ComprobacionConProgramaExterno():
     print("\n~~~~~~~~~~~Punto C del TP1~~~~~~~~~~~~~\n")
     print("Se mostraran ahora las raices calculadas por los metodos implementados en otras bibliotecas, en este caso de sympy.\n (Solo biseccion y NR)")
+
     print("\n~~~~Para la funcion 1~~~~")
     raizBiseccion = optimize.bisect(Funcion1ParaProgramaExterno, 0, 2)
     raizNewton = optimize.newton(Funcion1ParaProgramaExterno, 1)
@@ -190,8 +195,7 @@ def ComprobacionConProgramaExterno():
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
 
-
-#%% Main
+# %% Main
 
 def main():
     Introduccion()
@@ -199,7 +203,6 @@ def main():
     print("\n~~~~~Repetimos con mayor tolerancia~~~~~")
     BusquedaDeRaices(1e-13)
     ComprobacionConProgramaExterno()
-
 
 
 if __name__ == "__main__":
