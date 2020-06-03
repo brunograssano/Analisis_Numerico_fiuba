@@ -7,7 +7,7 @@
 * 🌳 Secante. ☑
 
 **Informe**
-    Cambiar tablas.
+    ☑ [LEER]
 
 **Gráficos**
     ☑
