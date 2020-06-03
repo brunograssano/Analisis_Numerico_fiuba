@@ -7,15 +7,13 @@
 * 🌳 Secante. ☑
 
 **Informe**
-    Casi terminado, quedan detalles
+    Cambiar tablas.
 
 **Gráficos**
     ☑
     
 **Ordenes**  
-    Estaria funcionando para el alfa, quizas revisar lambda? (En las pruebas)  
-    En el tp dan cualquiera, por las funciones que nos dieron?
-    Realizando pruebas a mano
+    Preguntar qué pasó con los ordenes de convergencia para las funciones f2 y f3
 
 ## Convención a usar
 * *camelCase* para variables
