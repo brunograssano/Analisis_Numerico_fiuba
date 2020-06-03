@@ -34,7 +34,7 @@ def calcularHistoriaDeOrden2(historia):
     Calcula la constante alfa, necesita de la historia de la busqueda de la raiz.
     Devuelve la historia del alfa y el alfa final conseguido
     """
-   tope = len(historia)
+    tope = len(historia)
     if tope < 5:
         return 0, np.array([])
     historiaDeOrden = np.zeros((tope-4, 2))
