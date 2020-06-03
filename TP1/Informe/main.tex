@@ -15,7 +15,7 @@
 \usepackage{float}
 \usepackage{multicol}
 %liberalismo
-\usepackage{minted} %codigo
+
 %liberalismo
 \pagestyle{fancy} % Encabezado y pie de página
 \fancyhf{}
@@ -27,6 +27,7 @@
 \usepackage[utf8]{inputenc}
 %viva perón liberal
 %abajo el comunismo
+
 \begin{document}
 \begin{titlepage} % Carátula
 	\hfill\includegraphics[width=6cm]{logofiuba.jpg}
@@ -53,6 +54,7 @@
 \end{titlepage}
 
 \tableofcontents % Índice general
+
 \newpage
 
 \section{Introducción}\label{sec:intro}
@@ -124,7 +126,7 @@ Los resultados obtenidos fueron los siguientes:
 \subsubsection{Primera función}\label{sec:bis1}
 
 En la iteración 18 se llega a la cota 1*10$^-5$
-\\
+
 \begin{multicols}{2}
 \begin{center}
 \begin{tabular}{| c | c |}
@@ -172,7 +174,7 @@ En la iteración 18 se llega a la cota 1*10$^-5$
 \subsubsection{Segunda función}\label{sec:bis2}
 
 En la iteración 17 se llega a la cota 1*10$^-5$
-\\
+
 \begin{multicols}{2}
 \begin{center}
     \begin{tabular}{| c | c |}
@@ -235,20 +237,20 @@ Los resultados obtenidos fueron los siguientes:
 \subsubsection{Primera función}\label{sec:NR1}
 En la iteración 3 se llega a la cota 1*10$^-5$
 \begin{center}
-\begin{tabular}{| c | c |}
-\hline
- Iteración & Resultado \\ \hline
-    0     & 1,00000000 \\
-    1     & 1,50000000 \\
-    2     & 1,41666667 \\
-    3     & 1,41421569 \\
-    4     & 1,41421356 \\
-\hline
-\end{tabular}
+    \begin{tabular}{| c | c |}
+    \hline
+     Iteración & Resultado \\ \hline
+        0     & 1,00000000 \\
+        1     & 1,50000000 \\
+        2     & 1,41666667 \\
+        3     & 1,41421569 \\
+        4     & 1,41421356 \\
+    \hline
+    \end{tabular}
 \end{center}
 \subsubsection{Segunda función}\label{sec:NR2}
 Ambas cotas de error se alcanzan en la última iteración.
-\\
+
 \begin{multicols}{2}
 \begin{center}
     \begin{tabular}{| c | c |}
@@ -372,7 +374,9 @@ $\quad p_{n} =p_{n-1}-\frac{f (p_{n-1})*(p_{n-1}-p_{n-2})}{f(p_{n-1})-f(p_{n-2})
 Los resultados obtenidos fueron los siguientes:
 
 \subsubsection{Primera función}\label{sec:sec1}
+
 En la iteración 6 se llega a la cota $1*10^-5$
+
 \begin{center}
     \begin{tabular}{| c | c |}
     \hline
@@ -392,62 +396,61 @@ En la iteración 6 se llega a la cota $1*10^-5$
 \subsubsection{Segunda función}\label{sec:sec2}
 En la iteración 38 se llega a la cota $1*10^-5$
 
-\\
 \begin{multicols}{2}
-\begin{center}
-    \begin{tabular}{| c | c |}
-    \hline
-     Iteración & Resultado \\ \hline
-        0     & 2,00000000 \\
-        1     & 1,47540984 \\
-        2     & 1,45261181 \\
-        3     & 1,37561518 \\
-        4     & 1,33671826 \\
-        5     & 1,30202941 \\
-        6     & 1,27740141 \\
-        7     & 1,25834599 \\
-        8     & 1,24408615 \\
-        9     & 1,23327849 \\
-        10    & 1,22512816 \\
-        11    & 1,21897058 \\
-        12    & 1,21432221 \\
-        13    & 1,21081235 \\
-        14    & 1,20816253 \\
-        15    & 1,20616200 \\
-        16    & 1,20465173 \\
-        17    & 1,20351158 \\
-        18    & 1,20265087 \\
-        19    & 1,20200111 \\
-            \hline
-    \end{tabular}
-\end{center}
-        \begin{center}
-    \begin{tabular}{| c | c |}
-    \hline
-     Iteración & Resultado \\ \hline
-        20    & 1,20151062 \\
-        21    & 1,20114034 \\
-        22    & 1,20086082 \\
-        23    & 1,20064982 \\
-        24    & 1,20049054 \\
-        25    & 1,20037030 \\
-        26    & 1,20027953 \\
-        27    & 1,20021101 \\
-        28    & 1,20015929 \\
-        29    & 1,20012024 \\
-        30    & 1,20009079 \\
-        31    & 1,20006853 \\
-        32    & 1,20005176 \\
-        33    & 1,20003916 \\
-        34    & 1,20002957 \\
-        35    & 1,20002258 \\
-        36    & 1,20001704 \\
-        37    & 1,20001302 \\
-        38    & 1,20000899 \\
-        39    & 1,20000899 \\
-    \hline
-    \end{tabular}
-\end{center}
+    \begin{center}
+        \begin{tabular}{| c | c |}
+        \hline
+         Iteración & Resultado \\ \hline
+            0     & 2,00000000 \\
+            1     & 1,47540984 \\
+            2     & 1,45261181 \\
+            3     & 1,37561518 \\
+            4     & 1,33671826 \\
+            5     & 1,30202941 \\
+            6     & 1,27740141 \\
+            7     & 1,25834599 \\
+            8     & 1,24408615 \\
+            9     & 1,23327849 \\
+            10    & 1,22512816 \\
+            11    & 1,21897058 \\
+            12    & 1,21432221 \\
+            13    & 1,21081235 \\
+            14    & 1,20816253 \\
+            15    & 1,20616200 \\
+            16    & 1,20465173 \\
+            17    & 1,20351158 \\
+            18    & 1,20265087 \\
+            19    & 1,20200111 \\
+                \hline
+        \end{tabular}
+    \end{center}
+    \begin{center}
+        \begin{tabular}{| c | c |}
+        \hline
+         Iteración & Resultado \\ \hline
+            20    & 1,20151062 \\
+            21    & 1,20114034 \\
+            22    & 1,20086082 \\
+            23    & 1,20064982 \\
+            24    & 1,20049054 \\
+            25    & 1,20037030 \\
+            26    & 1,20027953 \\
+            27    & 1,20021101 \\
+            28    & 1,20015929 \\
+            29    & 1,20012024 \\
+            30    & 1,20009079 \\
+            31    & 1,20006853 \\
+            32    & 1,20005176 \\
+            33    & 1,20003916 \\
+            34    & 1,20002957 \\
+            35    & 1,20002258 \\
+            36    & 1,20001704 \\
+            37    & 1,20001302 \\
+            38    & 1,20000899 \\
+            39    & 1,20000899 \\
+        \hline
+        \end{tabular}
+    \end{center}
 \end{multicols}
 
 \subsubsection{Tercera función}\label{sec:sec3}
@@ -484,18 +487,20 @@ Los resultados obtenidos con las funciones programadas son congruentes con estos
 \includegraphics[width=0.8\textwidth]{raiz f1.png}
 \caption{\label{fig:class01}Valor de la raíz según iteración.}
 \end{figure}
-\\
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{lambda f1.png}
-\caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
+    \centering
+    \includegraphics[width=0.8\textwidth]{lambda f1.png}
+    \caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
 \end{figure}
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{alfa f1.png}
-\caption{\label{fig:class01}Valor de P según iteración.}
+    \centering
+    \includegraphics[width=0.8\textwidth]{alfa f1.png}
+    \caption{\label{fig:class01}Valor de P según iteración.}
 \end{figure}
-\\Podemos ver como los valores de P están de acuerdo con lo que se esperaba en base a la teoría, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y una convergencia supralineal para el método de la secante.
+
+Podemos ver como los valores de P están de acuerdo con lo que se esperaba en base a la teoría, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y una convergencia supra-lineal para el método de la secante.
+
 \subsubsection{Segunda función}\label{sec:CR2}
 
 Usando la biblioteca 'SciPy', las raíces halladas fueron:
@@ -506,13 +511,13 @@ Usando la biblioteca 'SciPy', las raíces halladas fueron:
 
 Los resultados obtenidos con las funciones programadas son congruentes con estos últimos para la tolerancia $1*10^-5$, no así para la cota de error $1*10^-13$, se estima que esto se debe a como esta programado el método de la biblioteca. Para esta función, claramente el método de Newton-Raphson modificado fue el que mostró una convergencia más acelerada. 
 
-\\Analizando la diferencia en iteraciones para las dos cotas de error, se observa que prácticamente necesitaron la misma cantidad.
+Analizando la diferencia en iteraciones para las dos cotas de error, se observa que prácticamente necesitaron la misma cantidad.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{raiz f2.png}
 \caption{\label{fig:class01}Valor de la raíz según iteración.}
 \end{figure}
-\\
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{lambda f2.png}
@@ -523,7 +528,7 @@ Los resultados obtenidos con las funciones programadas son congruentes con estos
 \includegraphics[width=0.8\textwidth]{alfa f2.png}
 \caption{\label{fig:class01}Valor de P según iteración.}
 \end{figure}
-\\%Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
+%Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
 %falta analizar la parte de lambda, chequear si lo que puse de P está correcto
 
 \subsubsection{Tercera función}\label{sec:CR3}
@@ -537,29 +542,33 @@ Usando la biblioteca `SciPy`, las raíces halladas fueron:
 Para esta función, la convergencia más rápida fue utilizando el método de bisección, aunque los otros métodos tuvieron también una rápida convergencia. 
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{raiz f3.png}
-\caption{\label{fig:class01}Valor de la raíz según iteración.}
+    \centering
+    \includegraphics[width=0.8\textwidth]{raiz f3.png}
+    \caption{\label{fig:class01}Valor de la raíz según iteración.}
 \end{figure}
-\\
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{lambda f3.png}
-\caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
+    \centering
+    \includegraphics[width=0.8\textwidth]{lambda f3.png}
+    \caption{\label{fig:class01}Valor de $\lambda$ según iteración.}
 \end{figure}
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{alfa f3.png}
-\caption{\label{fig:class01}Valor de P según iteración.}
+    \centering
+    \includegraphics[width=0.8\textwidth]{alfa f3.png}
+    \caption{\label{fig:class01}Valor de P según iteración.}
 \end{figure}
-\\%Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
+
+%Podemos ver como los valores de P están de acuerdo en lo visto en la teórica, mostrando una convergencia lineal para la bisección, una cuadrática para los métodos Newton-Raphson y Newton-Raphson modificado y 1,6 para el método de la secante.
 %falta analizar la parte de lambda, chequear si lo que puse de P está correcto
+
 \section{Conclusiones}\label{sec:conclusiones}
 
-A modo de conclusión de este trabajo práctico, se destaca que para las dos primeras funciones la convergencia al resultado con la tolerancia dada con menos iteraciones fue utilizando el método de Newton-Raphson modificado, de acuerdo a la teória. Para la tercera función, la convergencia más rápida fue con el método de bisección, esto se debió al intervalo dado, que era ideal para hallar dicha raíz.
+A modo de conclusión de este trabajo práctico, se destaca que para las dos primeras funciones la convergencia al resultado con la tolerancia dada con menos iteraciones fue utilizando el método de Newton-Raphson modificado, de acuerdo a la teoría. Para la tercera función, la convergencia más rápida fue con el método de bisección, esto se debió al intervalo dado, que era ideal para hallar dicha raíz.
 
- \\Además, se encontraron dificultades para hallar el orden de convergencia P y la constante asintótica $\lambda$. Estimamos que una posible fuente de este inconveniente es el error de redondeo proveniente del uso de notación de punto flotante. Además, al trabajar con números muy cercanos entre si, el error tiende a aumentar al dividir por un número muy pequeño o multiplicando por uno muy grande, siendo estos cálculos necesarios para encontrar los valores que necesitamos. Otro posible origen, es el uso de funciones que no están del todo anidadas, que resultan en un aumento de las operaciones a realizar.
- \\Sobre la función 3, con los métodos NR y NR modificado, elegimos modificar la semilla inicial a 1,3, ya que observamos que con la semilla dada era imposible la convergencia (mediante iteraciones encontramos que el intervalo de convergencia es aproximadamente 1,26 < semilla < 1,74). Pensamos en utilizar algunos pasos de bisección para hallar una semilla más adecuada, pero nos encontramos con que en el segundo paso hallaba la raíz, haciendo que el método de NR sea en vano. Por lo tanto, nos pareció la decisión más adecuada elegir una semilla arbitrariamente dentro del intervalo de convergencia hallado.
+ Además, se encontraron dificultades para hallar el orden de convergencia P y la constante asintótica $\lambda$. Estimamos que una posible fuente de este inconveniente es el error de redondeo proveniente del uso de notación de punto flotante. Además, al trabajar con números muy cercanos entre si, el error tiende a aumentar al dividir por un número muy pequeño o multiplicando por uno muy grande, siendo estos cálculos necesarios para encontrar los valores que necesitamos. Otro posible origen, es el uso de funciones que no están del todo anidadas, que resultan en un aumento de las operaciones a realizar.
+ 
+ Sobre la función 3, con los métodos NR y NR modificado, elegimos modificar la semilla inicial a 1,3, ya que observamos que con la semilla dada era imposible la convergencia (mediante iteraciones encontramos que el intervalo de convergencia es aproximadamente 1,26 < semilla < 1,74). Pensamos en utilizar algunos pasos de bisección para hallar una semilla más adecuada, pero nos encontramos con que en el segundo paso hallaba la raíz, haciendo que el método de NR sea en vano. Por lo tanto, nos pareció la decisión más adecuada elegir una semilla arbitrariamente dentro del intervalo de convergencia hallado.
 
 
 \end{document}
