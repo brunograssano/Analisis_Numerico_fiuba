@@ -11,6 +11,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{multicol}
 %liberalismo
 \usepackage{minted} %codigo
 %liberalismo
@@ -121,10 +122,11 @@ Los resultados obtenidos fueron los siguientes:
 \subsubsection{Primera función}\label{sec:bis1}
 
 En la iteración 18 se llega a la cota 1*10$^-5$
-
+\\
+\begin{multicols}{2}
 \begin{center}
-    \begin{tabular}{| c | c |}
-    \hline
+\begin{tabular}{| c | c |}
+\hline
         Iteración & Resultado \\ \hline
         0     & 1,00000000 \\
         1     & 1,50000000 \\
@@ -140,6 +142,13 @@ En la iteración 18 se llega a la cota 1*10$^-5$
         11    & 1,41455078 \\
         12    & 1,41430664 \\
         13    & 1,41418457 \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline   
+ 
         14    & 1,41424561 \\
         15    & 1,41421509 \\
         16    & 1,41419983 \\
@@ -153,14 +162,16 @@ En la iteración 18 se llega a la cota 1*10$^-5$
         24    & 1,41421360 \\
         25    & 1,41421357 \\
         26    & 1,41421355 \\
-        27    & 1,41421356 \\ \hline
+        27    & 1,41421356 \\ 
+        \hline
     \end{tabular}
 \end{center}
-
+\end{multicols}
 \subsubsection{Segunda función}\label{sec:bis2}
 
 En la iteración 17 se llega a la cota 1*10$^-5$
-
+\\
+\begin{multicols}{2}
 \begin{center}
     \begin{tabular}{| c | c |}
     \hline
@@ -175,6 +186,13 @@ En la iteración 17 se llega a la cota 1*10$^-5$
         7     & 1,19531250 \\
         8     & 1,19921875 \\
         9     & 1,20117188 \\
+           \hline
+    \end{tabular}
+\end{center}
+        \begin{center}
+    \begin{tabular}{| c | c |}
+    \hline
+     Iteración & Resultado \\ \hline
         10    & 1,20019531 \\
         11    & 1,19970703 \\
         12    & 1,19995117 \\
@@ -188,7 +206,7 @@ En la iteración 17 se llega a la cota 1*10$^-5$
     \hline
     \end{tabular}
 \end{center}
-
+\end{multicols}
 \subsubsection{Tercera función}\label{sec:bis3}
 
 Ambas cotas de error se alcanzan en la primera iteración.
@@ -227,7 +245,9 @@ En la iteración 3 se llega a la cota 1*10$^-5$
 \end{tabular}
 \end{center}
 \subsubsection{Segunda función}\label{sec:NR2}
-Ambas cotas de error se alcanzan en la última iteración.\\
+Ambas cotas de error se alcanzan en la última iteración.
+\\
+\begin{multicols}{2}
 \begin{center}
     \begin{tabular}{| c | c |}
     \hline
@@ -247,7 +267,16 @@ Ambas cotas de error se alcanzan en la última iteración.\\
         12    & 1,19846918 \\
         13    & 1,19897947 \\
         14    & 1,19931965 \\
-        15    & 1,19954644 \\
+        
+          \hline
+    \end{tabular}
+\end{center}
+        
+    \begin{center}
+    \begin{tabular}{| c | c |}
+    \hline    
+     Iteración & Resultado \\ \hline
+     15    & 1,19954644 \\
         16    & 1,19969763 \\
         17    & 1,19979842 \\
         18    & 1,19986562 \\
@@ -266,6 +295,7 @@ Ambas cotas de error se alcanzan en la última iteración.\\
     \hline
     \end{tabular}
 \end{center}
+\end{multicols}
 \subsubsection{Tercera función}\label{sec:NR3}
 En la iteración 3 se llega a la cota 1*10$^-5$
 \begin{center}
@@ -359,6 +389,9 @@ En la iteración 6 se llega a la cota $1*10^-5$
 
 \subsubsection{Segunda función}\label{sec:sec2}
 En la iteración 38 se llega a la cota $1*10^-5$
+
+\\
+\begin{multicols}{2}
 \begin{center}
     \begin{tabular}{| c | c |}
     \hline
@@ -383,6 +416,13 @@ En la iteración 38 se llega a la cota $1*10^-5$
         17    & 1,20351158 \\
         18    & 1,20265087 \\
         19    & 1,20200111 \\
+            \hline
+    \end{tabular}
+\end{center}
+        \begin{center}
+    \begin{tabular}{| c | c |}
+    \hline
+     Iteración & Resultado \\ \hline
         20    & 1,20151062 \\
         21    & 1,20114034 \\
         22    & 1,20086082 \\
@@ -406,6 +446,7 @@ En la iteración 38 se llega a la cota $1*10^-5$
     \hline
     \end{tabular}
 \end{center}
+\end{multicols}
 
 \subsubsection{Tercera función}\label{sec:sec3}
 En la iteración 6 se llega a la cota $1*10^-5$
@@ -487,8 +528,8 @@ Los resultados obtenidos con las funciones programadas son congruentes con estos
 
 Usando la biblioteca `SciPy`, las raíces halladas fueron:
 \begin{itemize}
-    \item[$*$]Usando bisección:   1.5+-0.1
-    \item[$*$]Usando Newton Raphson:  1.5+-0.1
+    \item[$*$]Usando bisección:   1.500000000000000+-0.000000000000001
+    \item[$*$]Usando Newton Raphson:  1.500000000000000+-0.000000000000001
 \end{itemize}
 
 Para esta función, la convergencia más rápida fue utilizando el método de bisección, aunque los otros métodos tuvieron también una rápida convergencia. 
