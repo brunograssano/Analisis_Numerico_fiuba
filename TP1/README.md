@@ -7,12 +7,13 @@
 * 🌳 Secante. ☑
 
 **Informe**
-    Cambiar tablas.
+    ☑
 
 **Gráficos**
     ☑
     
-**Ordenes**  
+**Ordenes** 
+    ☑
     Preguntar qué pasó con los ordenes de convergencia para las funciones f2 y f3
 
 ## Convención a usar

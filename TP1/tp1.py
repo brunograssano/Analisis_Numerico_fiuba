@@ -1,22 +1,22 @@
 from sympy import *
 from scipy import optimize
 
-from TP1.metodos_numericos import Biseccion
-from TP1.metodos_numericos import Secante
-from TP1.metodos_numericos import NewtonRaphson
-from TP1.metodos_numericos import NewtonRaphsonModificado
+from metodos_numericos import Biseccion
+from metodos_numericos import Secante
+from metodos_numericos import NewtonRaphson
+from metodos_numericos import NewtonRaphsonModificado
 
-from TP1.calculadoraAlfaLambda import CalcularHistoriaDeOrden
-from TP1.calculadoraAlfaLambda import CalcularHistoriaConstanteAsintotica
+from calculadoraAlfaLambda import CalcularHistoriaDeOrden
+from calculadoraAlfaLambda import CalcularHistoriaConstanteAsintotica
 
-from TP1.Graficador import *
+from Graficador import *
 
 
 # Convencion utilizada a lo largo del trabajo
 # camelCase para variables
 # CamelCase para funciones
 
-# %% Funciones varias
+
 
 
 def Funcion1():
@@ -53,7 +53,7 @@ def Introduccion():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n")
 
 
-# %%% Punto B y D - Buscar raices y graficar ordenes
+
 
 def MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia):
     """
@@ -156,7 +156,6 @@ def BusquedaDeRaices(tolerancia):
     BuscarYComparar(Funcion3(), tolerancia, 1.3)
 
 
-# %%% Punto C - Comprobacion con programa externo
 
 def Funcion1ParaProgramaExterno(x):
     return x ** 2 - 2
@@ -195,7 +194,6 @@ def ComprobacionConProgramaExterno():
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
 
-# %% Main
 
 def main():
     Introduccion()
