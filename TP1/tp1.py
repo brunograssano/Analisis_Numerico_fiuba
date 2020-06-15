@@ -1,5 +1,6 @@
 from sympy import *
 from scipy import optimize
+import numpy as np
 
 from metodos_numericos import Biseccion
 from metodos_numericos import Secante
