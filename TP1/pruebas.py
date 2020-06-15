@@ -1,10 +1,11 @@
-from metodos_numericos import Biseccion
-from metodos_numericos import Secante
-from metodos_numericos import NewtonRaphson
-from metodos_numericos import NewtonRaphsonModificado
-from Graficador import *
-from calculadoraAlfaLambda import calcularHistoriaDeOrden
-from calculadoraAlfaLambda import calcularHistoriaConstanteAsintotica
+from TP1.metodos_numericos import Biseccion
+from TP1.metodos_numericos import Secante
+from TP1.metodos_numericos import NewtonRaphson
+from TP1.metodos_numericos import NewtonRaphsonModificado
+from TP1.Graficador import *
+#from calculadoraAlfaLambda import *
+from TP1.calculadora_nueva import *
+
 import numpy as np
 from sympy import *
 
@@ -24,6 +25,10 @@ def funcionPrueba4():
 def funcionPrueba5():# entre 1 y 3 esta la raiz esta deberia de ser 2,36...
     x = symbols('x')
     return x**5 + x**3 - x - 84
+
+def funcionClase():
+    x = symbols('x')
+    return x**3 + 4*x**2 - 10
 
 #Pruebas de uso
 def prueba1():
@@ -55,7 +60,7 @@ def prueba1():
     #print(alfaB)
     #print(ordenB)
     
-    alfaSEC, ordenSEC =calcularHistoriaDeOrden(historiaSEC)
+    alfaSEC, ordenSEC =CalcularHistoriaDeOrden(historiaSEC)
     print(alfaSEC)
     print(ordenSEC)
     
@@ -66,7 +71,7 @@ def prueba1():
     print(historiaSEC)
     
     print ("HISTORIA DE ORDEN F2")
-    alfaSEC, ordenSEC =calcularHistoriaDeOrden(historiaSEC)
+    alfaSEC, ordenSEC =CalcularHistoriaDeOrden(historiaSEC)
     print(alfaSEC)
     print(ordenSEC)
     
@@ -76,12 +81,12 @@ def prueba1():
     print(historiaSEC)
     
     print ("HISTORIA DE ORDEN F3")
-    alfaSEC, ordenSEC =calcularHistoriaDeOrden(historiaSEC)
+    alfaSEC, ordenSEC =CalcularHistoriaDeOrden(historiaSEC)
     print(alfaSEC)
     print(ordenSEC)
     
     print("CONSTANTE ASINTOTICA SEC F3")
-    constAsintSEC, histConstAsintSEC = calcularHistoriaConstanteAsintotica(ordenSEC, alfaSEC)
+    constAsintSEC, histConstAsintSEC = CalcularHistoriaConstanteAsintotica(ordenSEC, alfaSEC)
     print(constAsintSEC) #estaria llegando a 0.5?
     print(histConstAsintSEC)
     
@@ -91,12 +96,12 @@ def prueba1():
     print(historiaSEC)
     
     print ("HISTORIA DE ORDEN F4")
-    alfaSEC, ordenSEC =calcularHistoriaDeOrden(historiaSEC)
+    alfaSEC, ordenSEC =CalcularHistoriaDeOrden(historiaSEC)
     print(alfaSEC)
     print(ordenSEC)
     
     print("CONSTANTE ASINTOTICA SEC F4")
-    constAsintSEC, histConstAsintSEC = calcularHistoriaConstanteAsintotica(ordenSEC, alfaSEC)
+    constAsintSEC, histConstAsintSEC = CalcularHistoriaConstanteAsintotica(ordenSEC, alfaSEC)
     print(constAsintSEC) #aca no se acerca a 0.5
     print(histConstAsintSEC)
     
@@ -106,12 +111,12 @@ def prueba1():
     print(historiaSEC)
     
     print ("HISTORIA DE ORDEN F5")
-    alfaSEC, ordenSEC =calcularHistoriaDeOrden(historiaSEC)
+    alfaSEC, ordenSEC =CalcularHistoriaDeOrden(historiaSEC)
     print(alfaSEC)
     print(ordenSEC)
     
     print("CONSTANTE ASINTOTICA SEC F5")
-    constAsintSEC, histConstAsintSEC = calcularHistoriaConstanteAsintotica(ordenSEC, alfaSEC)
+    constAsintSEC, histConstAsintSEC = CalcularHistoriaConstanteAsintotica(ordenSEC, alfaSEC)
     print(constAsintSEC) #tendria que dar mas cercano a 0.5, quizas con mas iteraciones llega
     print(histConstAsintSEC)
     
@@ -122,12 +127,12 @@ def prueba1():
     print(historiaNR)
     
     print ("HISTORIA DE ORDEN NR F5")
-    alfaNR, ordenNR =calcularHistoriaDeOrden(historiaNR)
+    alfaNR, ordenNR =CalcularHistoriaDeOrden(historiaNR)
     print(alfaNR)
     print(ordenNR)
     
     print("CONSTANTE ASINTOTICA NR F5")
-    constAsintNR, histConstAsintNR = calcularHistoriaConstanteAsintotica(ordenNR, alfaNR)
+    constAsintNR, histConstAsintNR = CalcularHistoriaConstanteAsintotica(ordenNR, alfaNR)
     print(constAsintNR) #tendria que dar mas cercano a 0.5
     print(histConstAsintNR)
     
@@ -137,12 +142,12 @@ def prueba1():
     print(historiaNR)
     
     print ("HISTORIA DE ORDEN NR F4")
-    alfaNR, ordenNR =calcularHistoriaDeOrden(historiaNR)
+    alfaNR, ordenNR =CalcularHistoriaDeOrden(historiaNR)
     print(alfaNR)
     print(ordenNR)
     
     print("CONSTANTE ASINTOTICA NR F4")
-    constAsintNR, histConstAsintNR = calcularHistoriaConstanteAsintotica(ordenNR, alfaNR)
+    constAsintNR, histConstAsintNR = CalcularHistoriaConstanteAsintotica(ordenNR, alfaNR)
     print(constAsintNR) #tendria que dar mas cercano a 0.5
     print(histConstAsintNR)
     
@@ -199,8 +204,73 @@ def pruebasNewtonRaphson():
     pruebaNewtonRaphson1_DadaLaFuncion2_SiElMáximoDeIteracionesEsMenorQueLasIteracionesNecesariasParaCalcularLaRaizNoDebeHaberUnOutOfBounds()
     pruebaNewtonRaphson2_DadaLaFuncion2_LaRaizEsLaCorrectaParaLaTolerancia()
     
-    
-    
+def pruebaClase():
+    raizB, histB = Biseccion(funcionClase(),0,2,1e-10,50)
+    raizNR,histNR = NewtonRaphson(funcionClase(),1e-10,50,1)
+    raizNRM, histNRM = NewtonRaphsonModificado(funcionClase(),1e-10,50,1)
+    raizS, histS = Secante(funcionClase(), 0,2,1e-10,50)
+
+    print(raizB)
+    #print(raizNR)
+    print("Hist NR prueba clase")
+    print(histNR)
+    #print(raizNRM)
+    print("Hist NRM prueba clase")
+    print(histNRM)
+    #print(raizS)
+    print("Hist Secante prueba clase")
+    print(histS)
+
+    alfaB, histAlfaB = CalcularHistoriaDeOrden2(histB)
+    alfaNR,histAlfaNR = CalcularHistoriaDeOrden2(histNR)
+    alfaNRM,histAlfaNRM = CalcularHistoriaDeOrden2(histNRM)
+    alfaS, histAlfaS = CalcularHistoriaDeOrden2(histS)
+
+    GraficarOrdenDeConvergencia(histAlfaB,histAlfaNR,histAlfaNRM, histAlfaS, funcionClase())
+
+    lB,histLB = CalcularHistoriaConstanteAsintotica(histAlfaB, alfaB)
+    lNR, histLNR = CalcularHistoriaConstanteAsintotica(histAlfaNR, alfaNR)
+    lNRM, histLNRM = CalcularHistoriaConstanteAsintotica(histAlfaNRM, alfaNRM)
+    lS, histLS = CalcularHistoriaConstanteAsintotica(histAlfaS, alfaS)
+
+    GraficarConstantesAsintoticas(histLB, histLNR, histLNRM, histLS, funcionClase())
+
+def funcionPruebaCercaCero():
+    x = symbols('x')
+    return x**3 + x**2 - 10**(-5)
+
+
+def funcionEzequiel():
+    x = symbols('x')
+    return (x ** 2) / 4 - sin(x)
+
+def pruebaDatosEzequiel():
+    #comparar con los datos del campus, da lo mismo basicamente
+    raizS,histS = Secante(funcionEzequiel(), 1.6, 2.6, 1e-13, 50)
+    print("APARECE EL ALFA S")
+    alfaS,histAlfaS = CalcularHistoriaDeOrden(histS)
+    print("\n \nAPARECE EL LAMBDA S")
+    lambdaS,histLambdaS = CalcularHistoriaConstanteAsintotica(histS, alfaS)
+
+    raizNR, histNR = NewtonRaphson(funcionEzequiel(), 1e-13, 50, 1.6)
+    print("\n \nAPARECE EL ALFA NR")
+    alfaNR, histAlfaNR = CalcularHistoriaDeOrden(histNR)
+    print("\n \nAPARECE EL LAMBDA NR")
+    lambdaNR, histLambdaNR = CalcularHistoriaConstanteAsintotica(histNR, alfaNR)
+
+
+
+#raizB, histB = Biseccion(funcionPruebaCercaCero(),-2,2,1e-11,50)
+#print(histB)
+
 pruebasBiseccion()
 
 pruebasNewtonRaphson()
+
+#prueba1()
+
+#pruebaClase()
+
+pruebaDatosEzequiel()
+
+
