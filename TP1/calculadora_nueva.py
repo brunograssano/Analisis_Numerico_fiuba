@@ -62,6 +62,6 @@ def CalcularHistoriaConstanteAsintotica(historia, alfa):
 
     #historiaConstanteAsintotica = historiaConstanteAsintotica[:j]
 
-    print(historiaConstanteAsintotica)
+    #print(historiaConstanteAsintotica)
 
     return historiaConstanteAsintotica[tope -2 - 1][1], historiaConstanteAsintotica
