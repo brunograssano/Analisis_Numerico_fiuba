@@ -220,6 +220,6 @@ def main():
     #BusquedaDeRaices(1e-13)
     #ComprobacionConProgramaExterno()
     hB, hNR, hNRM, hSEC = BuscarRaices(Funcion1(), 1e-13, 1.3)
-    formatear(hNR)
+    formatear(hB)
 if __name__ == "__main__":
     main()
