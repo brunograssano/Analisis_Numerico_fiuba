@@ -14,11 +14,12 @@ from calculadora_nueva import *
 
 from Graficador import *
 
+from printer import formatear
+
 
 # Convencion utilizada a lo largo del trabajo
 # camelCase para variables
 # CamelCase para funciones
-
 
 
 
@@ -114,7 +115,6 @@ def BuscarRaices(Funcion, tolerancia, semillaNewton):
 
     MostrarRaices(raizBiseccion, raizNewton, raizNewtonModificado, raizSecante, tolerancia)
     GraficarMetodos(historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante, Funcion)
-
     return historiaBiseccion, historiaNewton, historiaNewtonModificado, historiaSecante
 
 
@@ -147,7 +147,7 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     print("\n \n NRM")
     constanteNRM, historiaConstanteNewtonModificado = CalcularHistoriaConstanteAsintotica(historiaNewtonModificado,ordenNewtonModificado)
 
-    print("\n \n SECANTE")
+    print("\n \n SECANTE")  
     constanteSEC, historiaConstanteSecante = CalcularHistoriaConstanteAsintotica(historiaSecante, ordenSecante)
 
     print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
@@ -217,9 +217,9 @@ def main():
     #Introduccion()
     #BusquedaDeRaices(1e-5)
     #print("\n~~~~~Repetimos con mayor tolerancia~~~~~")
-    BusquedaDeRaices(1e-13)
+    #BusquedaDeRaices(1e-13)
     #ComprobacionConProgramaExterno()
-
-
+    hB, hNR, hNRM, hSEC = BuscarRaices(Funcion1(), 1e-13, 1.3)
+    formatear(hNR)
 if __name__ == "__main__":
     main()
