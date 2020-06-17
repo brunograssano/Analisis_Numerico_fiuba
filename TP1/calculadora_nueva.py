@@ -27,7 +27,7 @@ def CalcularHistoriaDeOrden(historiaRaices):
             j = j+1
 
     alfa = alfa[:j]
-    print(alfa)
+    #print(alfa)
     if j == 0:
         return 0,alfa
     return alfa[j - 1][1], alfa
@@ -65,7 +65,7 @@ def CalcularHistoriaConstanteAsintotica(historia, alfa):
 
     historiaConstanteAsintotica = historiaConstanteAsintotica[:j]
 
-    print(historiaConstanteAsintotica)
+    #print(historiaConstanteAsintotica)
 
     if j == 0:
         return 0,historiaConstanteAsintotica
