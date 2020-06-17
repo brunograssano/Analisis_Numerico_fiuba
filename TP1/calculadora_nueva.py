@@ -19,8 +19,8 @@ def CalcularHistoriaDeOrden(historiaRaices):
         b = historiaRaices[n][1] - historiaRaices[n - 1][1]
         c = historiaRaices[n - 1][1] - historiaRaices[n - 2][1]
 
-        if (np.abs(np.log10(np.abs(b / c))) < 1e-14) or (np.abs(b) < 1e-14) or (np.abs(c) < 1e-14) or (np.abs(a) < 1e-14) or (np.log10(np.abs(a / b)) / np.log10(np.abs(b / c))) > 3 \
-                or (np.log10(np.abs(a / b)) / np.log10(np.abs(b / c))) < 0:
+        if (np.abs(np.log10(np.abs(b / c))) < 1e-14) or (np.abs(b) < 1e-14) or (np.abs(c) < 1e-14) or (np.abs(a) < 1e-14) or (np.log10(np.abs(a / b)) / np.log10(np.abs(b / c))) > 2.5 \
+                or (np.log10(np.abs(a / b)) / np.log10(np.abs(b / c))) < 0.3:
             continue
         else:
             alfa[j] = j, np.log10(np.abs(a / b)) / np.log10(np.abs(b / c))
@@ -54,7 +54,7 @@ def CalcularHistoriaConstanteAsintotica(historia, alfa):
         denominador = abs(x - xMenos1) ** alfa #aca la raiz seria xMenos1
 
         if numerador < 1e-14 or denominador < 1e-14 or xMas1< 1e-14 or x<1e-14 or xMenos1<1e-14 or (numerador / denominador)<1e-14 or (numerador / denominador)>1 \
-                or (numerador / denominador)<0:
+                or (numerador / denominador)<0.15:
             continue
         else:
             constanteActual = numerador / denominador
