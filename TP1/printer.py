@@ -8,5 +8,5 @@ def formatear(historia):
     i = 0
     for actual in historia:
         print("{:.0f}".format(actual[0]),"     &", actual[1]," & ","{:.13f}".format(actual[2])," & ",\
-              historiaAlfa[i][1]," & ", historiaLambda[i], barras)
-        i++;
+              historiaAlfa[i][1]," & ", historiaLambda[i][1], barras)
+        i = i + 1
