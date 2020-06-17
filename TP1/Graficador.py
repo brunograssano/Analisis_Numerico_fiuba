@@ -88,7 +88,7 @@ def GraficarOrdenDeConvergencia(historiaOCBiseccion, historiaOCNewtonRaphson, hi
     """
     plt.figure()
     axes = plt.gca()
-    axes.set_ylim([0, 3])
+    axes.set_ylim([0, 2.5])
     graficar(historiaOCBiseccion, 'Biseccion', 'blue')
     graficar(historiaOCNewtonRaphson, 'Newton-Raphson', 'red')
     graficar(historiaOCNewtonRaphsonModif, 'NR modificado', 'orange')
@@ -111,7 +111,7 @@ def GraficarConstantesAsintoticas(historiaCABIS, historiaCANR, historiaCANRM, hi
     """
     plt.figure()
     axes = plt.gca()
-    axes.set_ylim([0, 3])
+    axes.set_ylim([0, 1.5])
     graficar(historiaCABIS, 'Biseccion', 'blue')
     graficar(historiaCANR, 'Newton-Raphson', 'red')
     graficar(historiaCANRM, 'NR modificado', 'orange')
