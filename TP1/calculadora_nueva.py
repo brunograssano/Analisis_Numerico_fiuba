@@ -32,9 +32,15 @@ def CalcularHistoriaDeOrden(historiaRaices):
     alfa = alfa[:j]
 
     print(alfa)
+    if(len(alfa)!=0):
+        promedioAlfas=sum(alfa)/len(alfa)
+        promedioAlfas=promedioAlfas[1]
+    else:
+        promedioAlfas=0
+    print(promedioAlfas)
     if j==0:
         return 0, alfa
-    return alfa[j - 1][1], alfa
+    return promedioAlfas, alfa
     #return alfaAEnviar, alfa
 
 
