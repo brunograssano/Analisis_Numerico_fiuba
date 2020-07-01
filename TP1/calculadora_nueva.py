@@ -31,13 +31,13 @@ def CalcularHistoriaDeOrden(historiaRaices):
 
     alfa = alfa[:j]
 
-    #print(alfa)
+    print(alfa)
     if(len(alfa)!=0):
         promedioAlfas=sum(alfa)/len(alfa)
         promedioAlfas=promedioAlfas[1]
     else:
         promedioAlfas=0
-    #print(promedioAlfas)
+    print(promedioAlfas)
     if j==0:
         return 0, alfa
     return promedioAlfas, alfa
@@ -87,7 +87,7 @@ def CalcularHistoriaConstanteAsintotica(historia, alfa):
 
     historiaConstanteAsintotica = historiaConstanteAsintotica[:j]
 
-    #print(historiaConstanteAsintotica)
+    print(historiaConstanteAsintotica)
     if j==0:
         return 0, historiaConstanteAsintotica
     return historiaConstanteAsintotica[j - 1][1], historiaConstanteAsintotica
