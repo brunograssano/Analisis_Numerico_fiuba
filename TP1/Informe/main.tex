@@ -637,7 +637,9 @@ A modo de conclusión de este trabajo práctico, se destaca que la convergencia 
 Algo interesante que observamos fue que el método de la bisección converge siempre en la misma cantidad de iteraciones para una cota de error dada, comprobando en la práctica uno de los teoremas del método.
 
 Además, se encontraron dificultades para hallar el orden de convergencia P y la constante asintótica $\lambda$. Estimamos que una posible fuente de este inconveniente es el error de redondeo proveniente del uso de notación de punto flotante. Además, al trabajar con números muy cercanos entre si, el error tiende a aumentar al dividir por un número muy pequeño o multiplicando por uno muy grande, siendo estos cálculos necesarios para encontrar los valores que buscamos. Este error se podría llegar a reducir anidando las funciones, lo que provocaría una reducción en la cantidad de operaciones a realizar en algunos casos. 
-Otra fuente de error es que obtenemos el orden de convergencia vía una estimación y no vía un cálculo directo, es decir, le agregamos una incerteza más a un resultado con ya mucho error
+Otra fuente de error es que obtenemos el orden de convergencia vía una estimación y no vía un cálculo directo, es decir, le agregamos una incerteza más a un resultado con ya mucho error.
+
+Decidimos utilizar el promedio de los órdenes de convergencia P, para calcular el valor de la constante asintótica lambda y no el ultimo órden convergencia obtenido. Para algunas de las funciones dadas, el ultimo orden de convergencia obtenido se alejaba considerablemente del resto de los órdenes. Tomando la media podemos obtener un valor representativo del orden de convergencia a partir del cual calcular la constante asintótica que nos producirá menor incerteza.  
  
 Con respecto a la búsqueda de P y $\lambda$, teniendo en cuenta los posibles errores de cálculo despreciamos los valores claramente erróneos, pudiendo llegar a valores congruentes con la teoría
 
