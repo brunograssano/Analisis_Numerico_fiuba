@@ -217,7 +217,9 @@ def main():
     Introduccion()
     #BusquedaDeRaices(1e-5)
     #print("\n~~~~~Repetimos con mayor tolerancia~~~~~")
-    BusquedaDeRaices(1e-13)
-    ComprobacionConProgramaExterno()
+    #BusquedaDeRaices(1e-13)
+    #ComprobacionConProgramaExterno()
+    hB, hNR, hNRM, hSEC = BuscarRaices(Funcion2(), 1e-13, 1.3)
+    formatear(hNR)
 if __name__ == "__main__":
     main()
