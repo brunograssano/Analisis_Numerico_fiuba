@@ -360,7 +360,7 @@ En la iteración 3 se llega a la cota 1*10$^-5$
     0      & 1.3  &  -  &  -  &  - \\
     1      & 1.594117647058823  &  0.2941176470588  &  -  &  - \\
     2      & 1.492821654209128  &  0.1012959928497  &  2.482862983225440  &  - \\
-    3      & 1.500002960343984  &  0.0071813061349  &  2.944922718  &  0.622436853025493 \\
+    3      & 1.500002960343984  &  0.0071813061349  &  -  &  0.622436853025493 \\
     4      & 1.499999999999999  &  0.0000029603440 & 2.502817334 & - \\
     5      & 1.5  & 0.0000000000001 & - & -\\
     \hline
@@ -641,7 +641,7 @@ Otra fuente de error es que obtenemos el orden de convergencia vía una estimaci
 
 Decidimos utilizar el promedio de los órdenes de convergencia P, para calcular el valor de la constante asintótica lambda y no el ultimo órden convergencia obtenido. Para algunas de las funciones dadas, el ultimo orden de convergencia obtenido se alejaba considerablemente del resto de los órdenes. Tomando la media podemos obtener un valor representativo del orden de convergencia a partir del cual calcular la constante asintótica que nos producirá menor error.
  
-Con respecto a la búsqueda de P y $\lambda$, teniendo en cuenta los posibles errores de cálculo despreciamos los valores claramente erróneos, pudiendo llegar a valores congruentes con la teoría. Para el orden de convergencia, despreciamos valores obtenidos que fueran mayores a 2,5 y menores a 0,3. Para la constante asintótica lambda, despreciamos valores mayores a 1 y menores a 0,15. 
+Con respecto a la búsqueda de P y $\lambda$, teniendo en cuenta los posibles errores de cálculo despreciamos los valores claramente erróneos, pudiendo llegar a valores congruentes con la teoría. Para el orden de convergencia, despreciamos valores obtenidos que fueran mayores a 3 y menores a 0,3. Para la constante asintótica lambda, despreciamos valores mayores a 1 y menores a 0,15. 
 
 Sobre la función 3, con los métodos NR y NR modificado, elegimos modificar la semilla inicial a 1,3, ya que observamos que con la semilla dada era imposible la convergencia (mediante iteraciones encontramos que el intervalo de convergencia es aproximadamente 1,26 < semilla < 1,74). Nos pareció la decisión más adecuada elegir una semilla arbitrariamente dentro del intervalo de convergencia hallado para de esa manera mostrar el funcionamiento completo de los métodos.
 %BOCA LA CONCHA DE TU MADRE
