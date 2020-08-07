@@ -123,34 +123,34 @@ def ComparacionDeMetodos(historiaBiseccion, historiaNewton, historiaNewtonModifi
     Calculara los ordenes de convergencia y las constantes asintoticas para la funcion indicada en su forma de simbolos.
     Necesita tambien de las historias de la busqueda con cada metodo.
     """
-    print("\n \n ------------APARECEN ALFAS -----------")
-    print("\n \n BISECCION")
+    #print("\n \n ------------APARECEN ALFAS -----------")
+    #print("\n \n BISECCION")
     ordenBiseccion, historiaOrdenBiseccion = CalcularHistoriaDeOrden(historiaBiseccion)
 
-    print("\n \n NEWTON")
+    #print("\n \n NEWTON")
     ordenNewton, historiaOrdenNewton = CalcularHistoriaDeOrden(historiaNewton)
 
-    print("\n \n NRM")
+    #print("\n \n NRM")
     ordenNewtonModificado, historiaOrdenNewtonModificado = CalcularHistoriaDeOrden(historiaNewtonModificado)
 
-    print("\n \n SECANTE")
+    #print("\n \n SECANTE")
     ordenSecante, historiaOrdenSecante = CalcularHistoriaDeOrden(historiaSecante)
 
-    print("\n \n ------------APARECEN LAMBDAS -----------")
+    #print("\n \n ------------APARECEN LAMBDAS -----------")
 
-    print("\n \n BISECCION")
+    #print("\n \n BISECCION")
     constanteBis, historiaConstanteBiseccion = CalcularHistoriaConstanteAsintotica(historiaBiseccion, ordenBiseccion)
 
-    print("\n \n NEWTON")
+    #print("\n \n NEWTON")
     constanteNR, historiaConstanteNewton = CalcularHistoriaConstanteAsintotica(historiaNewton, ordenNewton)
 
-    print("\n \n NRM")
+    #print("\n \n NRM")
     constanteNRM, historiaConstanteNewtonModificado = CalcularHistoriaConstanteAsintotica(historiaNewtonModificado,ordenNewtonModificado)
 
-    print("\n \n SECANTE")  
+    #print("\n \n SECANTE")  
     constanteSEC, historiaConstanteSecante = CalcularHistoriaConstanteAsintotica(historiaSecante, ordenSecante)
 
-    print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
+    #print("\nApareceran ahora los graficos con las comparaciones de los ordenes de convergencia y la constante asintotica para los 4 metodos.")
 
     GraficarOrdenDeConvergencia(historiaOrdenBiseccion, historiaOrdenNewton, historiaOrdenNewtonModificado, historiaOrdenSecante, Funcion)
 
@@ -214,12 +214,12 @@ def ComprobacionConProgramaExterno():
 
 
 def main():
-    #Introduccion()
+    Introduccion()
     #BusquedaDeRaices(1e-5)
     #print("\n~~~~~Repetimos con mayor tolerancia~~~~~")
     #BusquedaDeRaices(1e-13)
     #ComprobacionConProgramaExterno()
-    hB, hNR, hNRM, hSEC = BuscarRaices(Funcion3(), 1e-13, 1.3)
-    formatear(hB)
+    hB, hNR, hNRM, hSEC = BuscarRaices(Funcion2(), 1e-13, 1.3)
+    formatear(hNR)
 if __name__ == "__main__":
     main()
