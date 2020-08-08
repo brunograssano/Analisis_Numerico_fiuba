@@ -1,7 +1,7 @@
 import numpy as np
 
 def f(theta, u, b, m, l):
-    return(-(b/m) *u - (9.8/l) * theta )
+    return(-(b/m) *u - (9.8/l) * theta)
 
 def g(u):
     return u
@@ -21,15 +21,15 @@ def constantesRungeKutta4(f,g,u,theta,h ,b, m, l):
 
     return k1, k2, k3, k4, m1, m2, m3, m4
 
-def HistoriasRK4(u0, theta0, h, b, m, l):
+def HistoriasRK4(u0, theta0, h, b, m, l, t):
 
-    N = 30 #cantidad de iteraciones del metodo
+    N = int(t/h) + 1 #cantidad de iteraciones del metodo
 
     u_ant, theta_ant = u0, theta0
 
-    HistoriaU = np.arange(0, N * h, h / 2).reshape(N, 2)
-    HistoriaTheta = np.arange(0, N * h, h / 2).reshape(N, 2)
-    HistoriaEnergia = np.arange(0, N * h, h / 2).reshape(N, 2)
+    HistoriaU = np.arange(0, round(N*h, 4) , h/2).reshape(N, 2)
+    HistoriaTheta = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
+    HistoriaEnergia = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
 
     for i in range(0 , N):
         HistoriaU[i, 1] = u_ant
@@ -46,15 +46,15 @@ def HistoriasRK4(u0, theta0, h, b, m, l):
 
     return HistoriaTheta, HistoriaU, HistoriaEnergia
 
-def HistoriasEuler(u0, theta0, h, b, m, l):
+def HistoriasEuler(u0, theta0, h, b, m, l, t):
 
-    N = 6000 #cantidad de iteraciones del metodo
+    N = int(t/h) + 1 #cantidad de iteraciones del metodo
 
     u_ant, theta_ant = u0, theta0
 
-    HistoriaU = np.arange(0, N*h, h/2).reshape(N, 2)
-    HistoriaTheta = np.arange(0, N*h, h/2).reshape(N, 2)
-    HistoriaEnergia = np.arange(0, N*h, h/2).reshape(N, 2)
+    HistoriaU = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
+    HistoriaTheta = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
+    HistoriaEnergia = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
 
     for i in range(0, N):
         HistoriaU[i, 1] = u_ant
