@@ -23,11 +23,6 @@ def ejecutarParaLosDatos(u0, theta0, h,b,l,m,t):
     print("ULTIMOS 5 VALORES - VELOCIDAD RK4")
     print(HistoriaURK4[-5:, :])
 
-    print("PRIMEROS 5 VALORES - ENERGIA RK4")
-    print(HistoriaEnergiaRK4[0:5, :])
-    print("ULTIMOS 5 VALORES - ENERGIA RK4")
-    print(HistoriaEnergiaRK4[-5:, :])
-
     print("PRIMEROS 5 VALORES - ANGULO EULER")
     print(HistoriaThetaRK1[0:5, :])
     print("ULTIMOS 5 VALORES - ANGULO EULER")
@@ -38,10 +33,6 @@ def ejecutarParaLosDatos(u0, theta0, h,b,l,m,t):
     print("ULTIMOS 5 VALORES - VELOCIDAD EULER")
     print(HistoriaURK1[-5:, :])
 
-    print("PRIMEROS 5 VALORES - ENERGIA EULER")
-    print(HistoriaEnergiaRK1[0:5, :])
-    print("ULTIMOS 5 VALORES - ENERGIA EULER")
-    print(HistoriaEnergiaRK1[-5:, :])
 
 
 u0 = 0 #velocidad incial (EN GRAD/S)
@@ -50,7 +41,7 @@ h = 0.02 #paso
 b = 0 #coeficiente de amortiguamiento
 l = 1 #longitud en metros
 m = 1 #masa en Kg
-t = 5 #tiempo durante el que se requieren mediciones
+t = 20 #tiempo durante el que se requieren mediciones
 
 ejecutarParaLosDatos(u0, theta0, h,b,l,m,t)
 
@@ -64,13 +55,5 @@ t = 20 #tiempo durante el que se requieren mediciones
 
 ejecutarParaLosDatos(u0, theta0, h,b,l,m,t)
 
-u0 = 0 #velocidad incial (EN GRAD/S)
-theta0 = 30 #angulo inicial (EN GRAD)
-h = 0.02 #paso
-b = 1 #coeficiente de amortiguamiento
-l = 1 #longitud en metros
-m = 1 #masa en Kg
-t = 20 #tiempo durante el que se requieren mediciones
 
-ejecutarParaLosDatos(u0, theta0, h,b,l,m,t)
 
