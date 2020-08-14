@@ -34,8 +34,28 @@ def ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, 
 
     imprimirHistorias(HistoriaThetaRK1, HistoriaThetaRK4, HistoriaURK1, HistoriaURK4)
 
+def usarConfiguracionUsuario():
+    print("Ingrese la velocidad inicial en grados/segundos")
+    u0VelocidadInicial = float(input())
+    print("Ingrese el angulo inicial en grados")
+    theta0AnguloInicial = float(input())
+    print("Ingrese el paso")
+    hPaso = float(input())
+    print("Ingrese un coeficiente de amortiguamiento")
+    bCoeficienteAmortiguamiento = float(input())
+    print("Ingrese la longitud")
+    longitud = float(input())
+    print("Ingrese la masa")
+    masa = float(input())
+    print("Ingrese el tiempo en que quiere las mediciones")
+    tiempo = float(input())
 
-def main():
+    print("Se mostrara la informacion con los datos ingresados")
+    ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, longitud,
+                                masa,
+                                tiempo)
+
+def usarConfiguracionDefault():
     u0VelocidadInicial = 0  # EN GRADOS/S
     theta0AnguloInicial = 30  # EN GRADOS
     hPaso = 0.02
@@ -44,7 +64,8 @@ def main():
     masa = 1  # en Kg
     tiempo = 20
 
-    ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, longitud, masa,
+    ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, longitud,
+                                masa,
                                 tiempo)
 
     u0VelocidadInicial = 100  # EN GRADOS/S
@@ -55,8 +76,18 @@ def main():
     masa = 1  # en Kg
     tiempo = 20
 
-    ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, longitud, masa,
+    ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, longitud,
+                                masa,
                                 tiempo)
+
+def main():
+    print("Quiere ingresar los datos manualmente? (S para confirmar, cualquier otra letra para usar el dafault)")
+    respuesta = input()
+    if respuesta == "S":
+        usarConfiguracionUsuario()
+    else:
+        usarConfiguracionDefault()
+
 
 if __name__ == "__main__":
     main()
