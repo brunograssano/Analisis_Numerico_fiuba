@@ -12,7 +12,7 @@ def graficarSeparados(HistoriaThetaRK1, HistoriaThetaRK4, HistoriaURK1, Historia
     graficos[0, 0].plot(HistoriaThetaRK1[:, 0], HistoriaThetaRK1[:, 1], label = 'RK1')
     graficos[0, 1].plot(HistoriaThetaRK4[:, 0], HistoriaThetaRK4[:, 1], label = 'RK4', color= 'orange')
 
-    graficos[0, 0].set_ylim([-2, 2])
+    graficos[0, 0].set_ylim([-5, 5])
 
     graficos[1, 0].set_ylabel('Vel. angular [rad/s]')
     graficos[1, 0].plot(HistoriaURK1[:, 0], HistoriaURK1[:, 1], label = 'RK1')
