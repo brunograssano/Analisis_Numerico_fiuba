@@ -1,70 +1,77 @@
 import numpy as np
 
-def f(theta, u, b, m, l):
-    return(-(b/m) *u - (9.8/l) * theta)
+
+def f(thetaAngulo, uVelocidad, bCoeficienteAmortiguamiento, masa, longitud):
+    return -(bCoeficienteAmortiguamiento / masa) * uVelocidad - (9.8 / longitud) * thetaAngulo
+
 
 def g(u):
     return u
 
-def energia(theta, u, m, l):
-    return m*9.8*(l - l*np.math.cos(theta)) + 0.5 * m * (l*u)**2
 
-def constantesRungeKutta4(f,g,u,theta,h ,b, m, l):
-    k1 = g(u)
-    m1 = f(theta, u, b, m, l)
-    m2 = f(theta + 0.5 * h * k1, u + 0.5 * h * m1, b, m, l)
-    k2 = g(u + 0.5 * h * m1)
-    k3 = g(u + 0.5 * h * m2)
-    m3 = f(theta + 0.5 * h * k2, u + 0.5 * h * m2, b, m, l)
-    m4 = f(theta + h * k3, u + h * m3, b, m, l)
-    k4 = g(u + h * m3)
+def energia(thetaAngulo, uVelocidad, masa, longitud):
+    gravedad = 9.81
+    return masa * gravedad * (longitud - longitud * np.math.cos(thetaAngulo)) + 0.5 * masa * (longitud * uVelocidad) ** 2
+
+
+def constantesRungeKutta4(f, g, uVelocidad, thetaAngulo, hPaso, bCoeficienteAmortiguamiento, masa, longitud):
+    k1 = g(uVelocidad)
+    m1 = f(thetaAngulo, uVelocidad, bCoeficienteAmortiguamiento, masa, longitud)
+    m2 = f(thetaAngulo + 0.5 * hPaso * k1, uVelocidad + 0.5 * hPaso * m1, bCoeficienteAmortiguamiento, masa, longitud)
+    k2 = g(uVelocidad + 0.5 * hPaso * m1)
+    k3 = g(uVelocidad + 0.5 * hPaso * m2)
+    m3 = f(thetaAngulo + 0.5 * hPaso * k2, uVelocidad + 0.5 * hPaso * m2, bCoeficienteAmortiguamiento, masa, longitud)
+    m4 = f(thetaAngulo + hPaso * k3, uVelocidad + hPaso * m3, bCoeficienteAmortiguamiento, masa, longitud)
+    k4 = g(uVelocidad + hPaso * m3)
 
     return k1, k2, k3, k4, m1, m2, m3, m4
 
-def HistoriasRK4(u0, theta0, h, b, m, l, t):
 
-    N = int(t/h) + 1 #cantidad de iteraciones del metodo
+def HistoriasRK4(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, masa, longitud, tiempo):
+    cantidadIteraciones = int(tiempo / hPaso) + 1
 
-    u_ant, theta_ant = u0, theta0
+    uVelocidadAnterior, thetaAnguloAnterior = u0VelocidadInicial, theta0AnguloInicial
 
-    HistoriaU = np.arange(0, round(N*h, 4) , h/2).reshape(N, 2)
-    HistoriaTheta = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
-    HistoriaEnergia = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
+    HistoriaU = np.arange(0, round(cantidadIteraciones * hPaso, 4), hPaso / 2).reshape(cantidadIteraciones, 2)
+    HistoriaTheta = np.arange(0, round(cantidadIteraciones * hPaso, 4), hPaso / 2).reshape(cantidadIteraciones, 2)
+    HistoriaEnergia = np.arange(0, round(cantidadIteraciones * hPaso, 4), hPaso / 2).reshape(cantidadIteraciones, 2)
 
-    for i in range(0 , N):
-        HistoriaU[i, 1] = u_ant
-        HistoriaTheta[i, 1] = theta_ant
-        HistoriaEnergia[i, 1] = energia(theta_ant, u_ant, m, l)
+    for i in range(0, cantidadIteraciones):
+        HistoriaU[i, 1] = uVelocidadAnterior
+        HistoriaTheta[i, 1] = thetaAnguloAnterior
+        HistoriaEnergia[i, 1] = energia(thetaAnguloAnterior, uVelocidadAnterior, masa, longitud)
 
-        k1, k2, k3, k4, m1, m2, m3, m4 = constantesRungeKutta4(f,g, u_ant, theta_ant , h ,b, m,l)
+        k1, k2, k3, k4, m1, m2, m3, m4 = constantesRungeKutta4(f, g, uVelocidadAnterior, thetaAnguloAnterior, hPaso,
+                                                               bCoeficienteAmortiguamiento, masa, longitud)
 
-        u_sig = u_ant + (h / 6) * (m1 + 2 * m2 + 2 * m3 + m4)
-        theta_sig = theta_ant + (h / 6) * (k1 + 2 * k2 + 2 * k3 + k4)
+        uVelocidadSiguiente = uVelocidadAnterior + (hPaso / 6) * (m1 + 2 * m2 + 2 * m3 + m4)
+        thetaAnguloSiguiente = thetaAnguloAnterior + (hPaso / 6) * (k1 + 2 * k2 + 2 * k3 + k4)
 
-        u_ant = u_sig
-        theta_ant = theta_sig
+        uVelocidadAnterior = uVelocidadSiguiente
+        thetaAnguloAnterior = thetaAnguloSiguiente
 
     return HistoriaTheta, HistoriaU, HistoriaEnergia
 
-def HistoriasEuler(u0, theta0, h, b, m, l, t):
 
-    N = int(t/h) + 1 #cantidad de iteraciones del metodo
+def HistoriasEuler(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, masa, longitud, tiempo):
+    cantidadIteraciones = int(tiempo / hPaso) + 1
 
-    u_ant, theta_ant = u0, theta0
+    uVelocidadAnterior, thetaAnguloAnterior = u0VelocidadInicial, theta0AnguloInicial
 
-    HistoriaU = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
-    HistoriaTheta = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
-    HistoriaEnergia = np.arange(0, round(N*h, 4), h/2).reshape(N, 2)
+    HistoriaU = np.arange(0, round(cantidadIteraciones * hPaso, 4), hPaso / 2).reshape(cantidadIteraciones, 2)
+    HistoriaTheta = np.arange(0, round(cantidadIteraciones * hPaso, 4), hPaso / 2).reshape(cantidadIteraciones, 2)
+    HistoriaEnergia = np.arange(0, round(cantidadIteraciones * hPaso, 4), hPaso / 2).reshape(cantidadIteraciones, 2)
 
-    for i in range(0, N):
-        HistoriaU[i, 1] = u_ant
-        HistoriaTheta[i, 1] = theta_ant
-        HistoriaEnergia[i, 1] = energia(theta_ant, u_ant, m, l)
+    for i in range(0, cantidadIteraciones):
+        HistoriaU[i, 1] = uVelocidadAnterior
+        HistoriaTheta[i, 1] = thetaAnguloAnterior
+        HistoriaEnergia[i, 1] = energia(thetaAnguloAnterior, uVelocidadAnterior, masa, longitud)
 
-        u_sig = u_ant + h * f(theta_ant, u_ant, b, m, l)
-        theta_sig = theta_ant + h * g(u_ant)
+        uVelocidadSiguiente = uVelocidadAnterior + hPaso * f(thetaAnguloAnterior, uVelocidadAnterior,
+                                                             bCoeficienteAmortiguamiento, masa, longitud)
+        thetaAnguloSiguiente = thetaAnguloAnterior + hPaso * g(uVelocidadAnterior)
 
-        u_ant = u_sig
-        theta_ant = theta_sig
+        uVelocidadAnterior = uVelocidadSiguiente
+        thetaAnguloAnterior = thetaAnguloSiguiente
 
     return HistoriaTheta, HistoriaU, HistoriaEnergia
