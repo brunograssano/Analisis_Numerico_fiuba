@@ -36,19 +36,19 @@ def ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, 
 
 def usarConfiguracionUsuario():
     print("Ingrese la velocidad inicial en grados/segundos")
-    u0VelocidadInicial = float(input())
+    u0VelocidadInicial = float(input("Velocidad:"))
     print("Ingrese el angulo inicial en grados")
-    theta0AnguloInicial = float(input())
+    theta0AnguloInicial = float(input("Angulo:"))
     print("Ingrese el paso")
-    hPaso = float(input())
+    hPaso = float(input("Paso:"))
     print("Ingrese un coeficiente de amortiguamiento")
-    bCoeficienteAmortiguamiento = float(input())
-    print("Ingrese la longitud")
-    longitud = float(input())
-    print("Ingrese la masa")
-    masa = float(input())
+    bCoeficienteAmortiguamiento = float(input("Amortiguamiento:"))
+    print("Ingrese la longitud en metros")
+    longitud = float(input("Longitud:"))
+    print("Ingrese la masa en kg")
+    masa = float(input("Masa:"))
     print("Ingrese el tiempo en que quiere las mediciones")
-    tiempo = float(input())
+    tiempo = float(input("Tiempo:"))
 
     print("Se mostrara la informacion con los datos ingresados")
     ejecutarMetodosParaLosDatos(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, longitud,
@@ -82,7 +82,7 @@ def usarConfiguracionDefault():
 
 def main():
     print("Quiere ingresar los datos manualmente? (S para confirmar, cualquier otra letra para usar el dafault)")
-    respuesta = input()
+    respuesta = input("Respuesta:")
     if respuesta == "S":
         usarConfiguracionUsuario()
     else:

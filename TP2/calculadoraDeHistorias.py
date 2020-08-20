@@ -2,7 +2,8 @@ import numpy as np
 
 
 def f(thetaAngulo, uVelocidad, bCoeficienteAmortiguamiento, masa, longitud):
-    return -(bCoeficienteAmortiguamiento / masa) * uVelocidad - (9.8 / longitud) * thetaAngulo
+    gravedad = 9.81
+    return -(bCoeficienteAmortiguamiento / masa) * uVelocidad - (gravedad / longitud) * thetaAngulo
 
 
 def g(u):
@@ -28,6 +29,10 @@ def constantesRungeKutta4(f, g, uVelocidad, thetaAngulo, hPaso, bCoeficienteAmor
 
 
 def HistoriasRK4(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, masa, longitud, tiempo):
+    """
+    PreCondiciones: Los valores recibidos son validos, por ejemplo, la longitud, tiempo, masa tienen que ser positivos.
+    PostCondiciones: Calculara la historia de Runge Kutta 4
+    """
     cantidadIteraciones = int(tiempo / hPaso) + 1
 
     uVelocidadAnterior, thetaAnguloAnterior = u0VelocidadInicial, theta0AnguloInicial
@@ -54,6 +59,10 @@ def HistoriasRK4(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmo
 
 
 def HistoriasEuler(u0VelocidadInicial, theta0AnguloInicial, hPaso, bCoeficienteAmortiguamiento, masa, longitud, tiempo):
+    """
+    PreCondiciones: Los valores recibidos son validos, por ejemplo, la longitud, tiempo, masa tienen que ser positivos.
+    PostCondiciones: Calculara la historia de Euler
+    """
     cantidadIteraciones = int(tiempo / hPaso) + 1
 
     uVelocidadAnterior, thetaAnguloAnterior = u0VelocidadInicial, theta0AnguloInicial
