@@ -1,6 +1,27 @@
-# Analisis_Numerico_fiuba
-Material y trabajos practicos de Analisis Numerico I - Catedra Sassano   
+# Análisis Numérico - Fiuba
+Material y trabajos practicos de Análisis Numérico I - Cátedra Sassano  
 
-* El TP1 consistio en la busqueda de raices para tres funciones distintas aplicando diferentes metodos, luego se analizaron los ordenes de convergencia de cada uno    
+El objetivo de la materia es adquirir los conocimientos fundamentales para el desarrollo y la aplicación de las técnicas
+numéricas que se utilizan para resolver numerosas problemáticas del campo profesional del ingeniero. 
 
-* El TP2 consistio en en realizar metodos de resolucion de ecuaciones diferenciales (Euler y Runge-Kutta 4). Estos se aplicaron a una ecuacion de un pendulo
+### Trabajos practicos realizados
+
+* El TP1 consistió en la busqueda de raíces para tres funciones distintas aplicando diferentes metodos, luego se analizaron los ordenes de convergencia de cada uno    
+
+* El TP2 consistió en realizar métodos de resolución de ecuaciones diferenciales (Euler y Runge-Kutta 4). Estos se aplicaron a una ecuación de un pendulo
+
+Ambos fueron realizados en Python.
+
+### Programa sintético
+* Errores en el análisis numérico (Propagacion, redondeo, punto flotante)
+* Sistemas de ecuaciones lineales (Gauss, pivoteo, refinamiento, Jacobi, Gauss-Seidel, SOR)
+* Raíces de ecuaciones (Bisección, punto fijo, convergencia, Newton-Raphson, Secante, Gauss-Seidel, Cuasi-Newton)
+* Aproximación de funciones (Cuadrados mínimos, interpolación, Lagrange, Newton, Hermite)
+* Integración y diferenciación numérica (Regla de trapecios, Simpson, Richardson)
+* Resolución numérica de ecuaciones diferenciales ordinarias (Método de Euler, Runge-Kutta, métodos multipaso)
+
+
+
+
+
+
